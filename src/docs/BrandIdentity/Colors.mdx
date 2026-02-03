@@ -1,0 +1,223 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Brand Identity/Colors" />
+
+# Colors
+
+The Sparkline color palette provides a consistent visual language across all components and applications.
+
+## Primary Colors
+
+The primary color represents the brand and is used for key interactive elements, CTAs, and focus states.
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Scale"
+    subtitle="$primary-* tokens"
+    colors={{
+      '$primary-10': '#F1ECFE',
+      '$primary-20': '#E4D8FE',
+      '$primary-30': '#C9B2FD',
+      '$primary-40': '#A078FB',
+      '$primary-50': '#783EF9',
+      '$primary-60': '#2C00AC',
+      '$primary-70': '#00007A',
+      '$primary-80': '#000060',
+      '$primary-90': '#000047',
+    }}
+  />
+</ColorPalette>
+
+## Secondary Colors
+
+Secondary colors provide visual variety and complement the primary palette.
+
+<ColorPalette>
+  <ColorItem
+    title="Secondary Scale"
+    subtitle="$secondary-* tokens"
+    colors={{
+      '$secondary-10': '#FBE5F6',
+      '$secondary-20': '#F8CCEC',
+      '$secondary-30': '#F4B2E3',
+      '$secondary-40': '#ED80D0',
+      '$secondary-50': '#DB00A1',
+      '$secondary-60': '#8E0055',
+      '$secondary-70': '#75003B',
+      '$secondary-80': '#5C0022',
+      '$secondary-90': '#420008',
+    }}
+  />
+</ColorPalette>
+
+## Neutral Colors
+
+Neutral colors are used for text, backgrounds, and borders.
+
+<ColorPalette>
+  <ColorItem
+    title="Neutral Scale"
+    subtitle="$neutral-* tokens"
+    colors={{
+      '$neutral-10': '#FFFFFF',
+      '$neutral-20': '#F1F1F1',
+      '$neutral-30': '#D6D6D6',
+      '$neutral-40': '#BABABA',
+      '$neutral-50': '#757575',
+      '$neutral-60': '#626060',
+      '$neutral-70': '#3D3D3D',
+      '$neutral-80': '#303030',
+      '$neutral-90': '#000000',
+    }}
+  />
+</ColorPalette>
+
+## Alert Colors
+
+Alert colors communicate states and provide feedback to users.
+
+<ColorPalette>
+  <ColorItem
+    title="Info"
+    subtitle="$alert-info"
+    colors={{ '$alert-info': '#006ADB' }}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="$alert-success"
+    colors={{ '$alert-success': '#008A22' }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="$alert-warning"
+    colors={{ '$alert-warning': '#AC6502' }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="$alert-error"
+    colors={{ '$alert-error': '#EA0606' }}
+  />
+</ColorPalette>
+
+## Token Reference
+
+### Primary Tokens
+```
+$primary-10: #F1ECFE  // Lightest - subtle backgrounds
+$primary-20: #E4D8FE  // Light backgrounds, disabled states
+$primary-30: #C9B2FD  // Hover backgrounds
+$primary-40: #A078FB  // Light interactive elements
+$primary-50: #783EF9  // Main brand color (DEFAULT)
+$primary-60: #2C00AC  // Dark text on light backgrounds
+$primary-70: #00007A  // Darker accents
+$primary-80: #000060  // Very dark
+$primary-90: #000047  // Darkest
+```
+
+### Secondary Tokens
+```
+$secondary-10: #FBE5F6  // Lightest
+$secondary-20: #F8CCEC  // Light backgrounds
+$secondary-30: #F4B2E3  // Hover backgrounds
+$secondary-40: #ED80D0  // Light accents
+$secondary-50: #DB00A1  // Main accent color (DEFAULT)
+$secondary-60: #8E0055  // Dark accents
+$secondary-70: #75003B  // Darker
+$secondary-80: #5C0022  // Very dark
+$secondary-90: #420008  // Darkest
+```
+
+### Neutral Tokens
+```
+$neutral-10: #FFFFFF  // White - backgrounds, cards
+$neutral-20: #F1F1F1  // Light gray - subtle backgrounds
+$neutral-30: #D6D6D6  // Borders, dividers
+$neutral-40: #BABABA  // Disabled text
+$neutral-50: #757575  // Secondary text (DEFAULT)
+$neutral-60: #626060  // Body text
+$neutral-70: #3D3D3D  // Dark text
+$neutral-80: #303030  // Darker backgrounds
+$neutral-90: #000000  // Black - headings, emphasis
+```
+
+### Alert Tokens
+```
+$alert-info:    #006ADB  // Blue - informational
+$alert-success: #008A22  // Green - success, positive
+$alert-warning: #AC6502  // Orange - warnings, caution
+$alert-error:   #EA0606  // Red - errors, danger
+```
+
+## Usage Guidelines
+
+### Token Selection
+
+**For Backgrounds:**
+- Light: `$primary-10`, `$secondary-10`, `$neutral-10`, `$neutral-20`
+- Medium: `$primary-20`, `$secondary-20`, `$neutral-30`
+- Dark: `$neutral-80`, `$neutral-90`
+
+**For Text:**
+- Primary text: `$neutral-90`, `$neutral-70`
+- Secondary text: `$neutral-60`, `$neutral-50`
+- Disabled text: `$neutral-40`
+- On dark backgrounds: `$neutral-10`
+
+**For Interactive Elements:**
+- Default: `$primary-50`
+- Hover: `$primary-40`
+- Active: `$primary-60`
+- Focus: `$primary-50` with shadow
+
+**For Semantic Feedback:**
+- Information: `$alert-info`
+- Success: `$alert-success`
+- Warning: `$alert-warning`
+- Error: `$alert-error`
+
+## Implementation
+
+### CSS
+```css
+.button-primary {
+  background-color: var(--primary-50);
+  color: var(--neutral-10);
+}
+
+.button-primary:hover {
+  background-color: var(--primary-40);
+}
+
+.text-secondary {
+  color: var(--neutral-50);
+}
+
+.badge-success {
+  background-color: var(--alert-success);
+  color: var(--neutral-10);
+}
+```
+
+### JavaScript/TypeScript
+```typescript
+import { colors } from './tokens';
+
+const styles = {
+  backgroundColor: colors['primary-50'],
+  color: colors['neutral-10'],
+  borderColor: colors['neutral-30'],
+};
+```
+
+## Accessibility
+
+All color combinations meet WCAG AA standards:
+- **Normal text (16px)**: Minimum 4.5:1 contrast ratio
+- **Large text (18px+)**: Minimum 3:1 contrast ratio
+
+### Approved Combinations
+- `$primary-50` on `$neutral-10` ✓
+- `$neutral-90` on `$neutral-10` ✓
+- `$neutral-10` on `$primary-50` ✓
+- `$alert-error` on `$neutral-10` ✓
+- `$neutral-50` on `$neutral-10` ✓

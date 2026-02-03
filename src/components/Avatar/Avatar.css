@@ -1,0 +1,168 @@
+.sparkline-avatar {
+  position: relative;
+  display: inline-block;
+}
+
+/* Size variants */
+.sparkline-avatar--small {
+  width: 16px;
+  height: 16px;
+}
+
+.sparkline-avatar--medium {
+  width: 24px;
+  height: 24px;
+}
+
+.sparkline-avatar--large {
+  width: 32px;
+  height: 32px;
+}
+
+/* Container */
+.sparkline-avatar__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Content base styles */
+.sparkline-avatar__content {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text Avatar */
+.sparkline-avatar__content--text {
+  background-color: #e4d8fe; /* primary/20 from Figma */
+}
+
+.sparkline-avatar__text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #2c00ac; /* primary/60 from Figma */
+  text-align: center;
+}
+
+/* Image Avatar */
+.sparkline-avatar__content--image {
+  background-color: transparent;
+}
+
+.sparkline-avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Icon Avatar */
+.sparkline-avatar__content--icon {
+  background-color: #f1f1f1; /* neutral/20 from Figma */
+  padding: 4px;
+}
+
+.sparkline-avatar__icon {
+  width: 100%;
+  height: 100%;
+  color: #757575; /* neutral/50 from Figma */
+}
+
+/* Status Indicator */
+.sparkline-avatar__status {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid #ffffff; /* neutral/10 from Figma */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status positioning by size */
+.sparkline-avatar--small .sparkline-avatar__status {
+  bottom: -2px;
+  right: -3px;
+}
+
+.sparkline-avatar--medium .sparkline-avatar__status {
+  bottom: -2px;
+  right: -3px;
+}
+
+.sparkline-avatar--large .sparkline-avatar__status {
+  bottom: 0;
+  right: 0;
+}
+
+/* Status variants */
+.sparkline-avatar__status--online {
+  background-color: #008a22; /* alert/success from Figma */
+}
+
+.sparkline-avatar__status--offline {
+  background-color: #757575;
+}
+
+.sparkline-avatar__status--away {
+  background-color: #f59e0b;
+}
+
+.sparkline-avatar__status--busy {
+  background-color: #ef4444;
+}
+
+.sparkline-avatar__status-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Notification Badge */
+.sparkline-avatar__notification {
+  position: absolute;
+  height: 20px;
+  background-color: #783ef9; /* primary from Figma */
+  border: 1px solid #ffffff; /* neutral/10 from Figma */
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  white-space: nowrap;
+}
+
+/* Notification positioning by size */
+.sparkline-avatar--small .sparkline-avatar__notification {
+  top: -12px;
+  right: -32px;
+}
+
+.sparkline-avatar--medium .sparkline-avatar__notification {
+  top: -10px;
+  right: -31px;
+}
+
+.sparkline-avatar--large .sparkline-avatar__notification {
+  top: -7px;
+  left: 24px;
+}
+
+.sparkline-avatar__notification-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #ffffff; /* neutral/10 from Figma */
+  text-align: center;
+}

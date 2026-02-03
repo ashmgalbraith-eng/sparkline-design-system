@@ -1,0 +1,137 @@
+.sparkline-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.sparkline-input__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  display: block;
+}
+
+.sparkline-input__required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.sparkline-input__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sparkline-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #111827;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+.sparkline-input:focus {
+  outline: none;
+  border-color: #783ef9;
+  box-shadow: 0 0 0 3px rgba(120, 62, 249, 0.1);
+}
+
+.sparkline-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Size variants */
+.sparkline-input--small {
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.sparkline-input--medium {
+  height: 40px;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.sparkline-input--large {
+  height: 48px;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+/* With icons */
+.sparkline-input--with-icon-left {
+  padding-left: 40px;
+}
+
+.sparkline-input--with-icon-right {
+  padding-right: 40px;
+}
+
+/* State variants */
+.sparkline-input--error {
+  border-color: #ef4444;
+}
+
+.sparkline-input--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.sparkline-input--success {
+  border-color: #10b981;
+}
+
+.sparkline-input--success:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.sparkline-input--disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Icons */
+.sparkline-input__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+}
+
+.sparkline-input__icon--left {
+  left: 12px;
+}
+
+.sparkline-input__icon--right {
+  right: 12px;
+}
+
+.sparkline-input__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Messages */
+.sparkline-input__message {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.sparkline-input__message--error {
+  color: #ef4444;
+}
+
+.sparkline-input__message--helper {
+  color: #6b7280;
+}

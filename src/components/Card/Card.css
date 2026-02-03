@@ -1,0 +1,67 @@
+.sparkline-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+.sparkline-card--elevated {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.sparkline-card--elevated:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sparkline-card--outlined {
+  border: 1px solid #e5e7eb;
+}
+
+.sparkline-card--outlined:hover {
+  border-color: #d1d5db;
+}
+
+.sparkline-card--filled {
+  background-color: #f9fafb;
+}
+
+.sparkline-card--clickable {
+  cursor: pointer;
+}
+
+.sparkline-card__image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.sparkline-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sparkline-card__content {
+  padding: 24px;
+}
+
+.sparkline-card__title {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.sparkline-card__body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.sparkline-card__footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

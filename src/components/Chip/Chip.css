@@ -1,0 +1,93 @@
+.sparkline-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+/* Variant styles */
+.sparkline-chip--outlined {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.sparkline-chip--filled {
+  background-color: #f3f4f6;
+  border: none;
+  color: #374151;
+}
+
+/* Hover states */
+.sparkline-chip--clickable {
+  cursor: pointer;
+}
+
+.sparkline-chip--clickable:hover:not(.sparkline-chip--disabled) {
+  background-color: rgba(120, 62, 249, 0.08);
+  border-color: #783ef9;
+}
+
+.sparkline-chip--filled.sparkline-chip--clickable:hover:not(.sparkline-chip--disabled) {
+  background-color: #e5e7eb;
+}
+
+/* Disabled state */
+.sparkline-chip--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Icon */
+.sparkline-chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+}
+
+.sparkline-chip__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Label */
+.sparkline-chip__label {
+  line-height: 1.4;
+}
+
+/* Close button */
+.sparkline-chip__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sparkline-chip__close:hover:not(:disabled) {
+  color: #374151;
+}
+
+.sparkline-chip__close:disabled {
+  cursor: not-allowed;
+}
+
+.sparkline-chip__close svg {
+  width: 100%;
+  height: 100%;
+}
