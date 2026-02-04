@@ -6,6 +6,10 @@ const meta: Meta<typeof Badge> = {
   component: Badge,
   parameters: {
     layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/aY6PTxhYjhJhxUgH77u0b1/Sparkline-Design-System?node-id=213-283&m=dev',
+    },
   },
   tags: ['autodocs'],
   argTypes: {

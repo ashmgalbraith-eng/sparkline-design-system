@@ -1,120 +1,138 @@
 .sparkline-input-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
   width: 100%;
+}
+
+/* Label row */
+.sparkline-input__label-row {
+  display: flex;
+  height: 19px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
 }
 
 .sparkline-input__label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  display: block;
-}
-
-.sparkline-input__required {
-  color: #ef4444;
-  margin-left: 4px;
-}
-
-.sparkline-input__input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.sparkline-input {
-  width: 100%;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  color: #111827;
-  transition: all 0.2s ease;
-  background-color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  color: #303030; /* neutral-80 */
 }
 
-.sparkline-input:focus {
+.sparkline-input__optional {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #757575; /* neutral-50 */
+}
+
+/* Input wrapper (the bordered box) */
+.sparkline-input__input-wrapper {
+  display: flex;
+  height: 48px;
+  padding: 12px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid #303030; /* neutral-80 */
+  background: #FFFFFF; /* neutral-10 */
+  transition: border-color 0.2s ease;
+}
+
+.sparkline-input__input-wrapper:focus-within {
+  border-color: #A078FB; /* primary-40 */
+}
+
+/* State: error */
+.sparkline-input__input-wrapper--error {
+  border-color: #EA0606; /* alert-error */
+}
+
+.sparkline-input__input-wrapper--error:focus-within {
+  border-color: #EA0606;
+}
+
+.sparkline-input__input-wrapper--error .sparkline-input__icon {
+  color: #EA0606; /* alert-error */
+}
+
+/* State: success */
+.sparkline-input__input-wrapper--success {
+  border-color: #008A22; /* alert-success */
+}
+
+.sparkline-input__input-wrapper--success:focus-within {
+  border-color: #008A22;
+}
+
+.sparkline-input__input-wrapper--success .sparkline-input__icon {
+  color: #008A22; /* alert-success */
+}
+
+/* State: disabled */
+.sparkline-input__input-wrapper--disabled {
+  border-color: #BABABA; /* neutral-40 */
+  background: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.sparkline-input__input-wrapper--disabled .sparkline-input__icon {
+  color: #BABABA; /* neutral-40 */
+}
+
+/* The input element itself */
+.sparkline-input {
+  flex: 1 0 0;
+  width: 100%;
+  border: none;
   outline: none;
-  border-color: #783ef9;
-  box-shadow: 0 0 0 3px rgba(120, 62, 249, 0.1);
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #303030; /* neutral-80 */
+  padding: 0;
 }
 
 .sparkline-input::placeholder {
-  color: #9ca3af;
-}
-
-/* Size variants */
-.sparkline-input--small {
-  height: 32px;
-  padding: 6px 12px;
-  font-size: 13px;
-}
-
-.sparkline-input--medium {
-  height: 40px;
-  padding: 8px 14px;
-  font-size: 14px;
-}
-
-.sparkline-input--large {
-  height: 48px;
-  padding: 10px 16px;
-  font-size: 16px;
-}
-
-/* With icons */
-.sparkline-input--with-icon-left {
-  padding-left: 40px;
-}
-
-.sparkline-input--with-icon-right {
-  padding-right: 40px;
-}
-
-/* State variants */
-.sparkline-input--error {
-  border-color: #ef4444;
-}
-
-.sparkline-input--error:focus {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-.sparkline-input--success {
-  border-color: #10b981;
-}
-
-.sparkline-input--success:focus {
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  color: #757575; /* neutral-50 */
+  font-weight: 400;
 }
 
 .sparkline-input--disabled {
-  background-color: #f3f4f6;
-  color: #9ca3af;
+  color: #BABABA; /* neutral-40 */
   cursor: not-allowed;
-  opacity: 0.6;
+}
+
+.sparkline-input--disabled::placeholder {
+  color: #BABABA; /* neutral-40 */
+}
+
+/* With icons — add padding so text doesn't overlap */
+.sparkline-input--with-icon-left {
+  padding-left: 0;
+}
+
+.sparkline-input--with-icon-right {
+  padding-right: 0;
 }
 
 /* Icons */
 .sparkline-input__icon {
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  color: #6b7280;
-}
-
-.sparkline-input__icon--left {
-  left: 12px;
-}
-
-.sparkline-input__icon--right {
-  right: 12px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: #757575; /* neutral-50 */
 }
 
 .sparkline-input__icon svg {
@@ -122,16 +140,27 @@
   height: 100%;
 }
 
-/* Messages */
+/* Message row */
+.sparkline-input__message-row {
+  display: flex;
+  height: 14px;
+  padding-right: 8px;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
 .sparkline-input__message {
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  line-height: 1.4;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .sparkline-input__message--error {
-  color: #ef4444;
+  color: #EA0606; /* alert-error */
 }
 
 .sparkline-input__message--helper {
-  color: #6b7280;
+  color: #757575; /* neutral-50 */
 }

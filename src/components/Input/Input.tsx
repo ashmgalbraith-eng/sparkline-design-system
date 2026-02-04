@@ -2,57 +2,29 @@ import React from 'react';
 import './Input.css';
 
 export interface InputProps {
-  /**
-   * Input label
-   */
+  /** Input label */
   label?: string;
-  /**
-   * Input placeholder
-   */
+  /** Input placeholder */
   placeholder?: string;
-  /**
-   * Input type
-   */
+  /** Input type */
   type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url';
-  /**
-   * Input value
-   */
+  /** Input value */
   value?: string;
-  /**
-   * Input size
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Input state
-   */
+  /** Input state */
   state?: 'default' | 'error' | 'success' | 'disabled';
-  /**
-   * Helper text
-   */
+  /** Helper text displayed below the input */
   helperText?: string;
-  /**
-   * Error message
-   */
+  /** Error message displayed below the input (shown when state is error) */
   errorMessage?: string;
-  /**
-   * Show leading icon
-   */
+  /** Show leading icon */
   iconLeft?: React.ReactNode;
-  /**
-   * Show trailing icon
-   */
+  /** Show trailing icon */
   iconRight?: React.ReactNode;
-  /**
-   * Required field
-   */
-  required?: boolean;
-  /**
-   * Change handler
-   */
+  /** Mark the field as optional (displays "(optional)" next to label) */
+  optional?: boolean;
+  /** Change handler */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  /**
-   * Optional additional className
-   */
+  /** Optional additional className */
   className?: string;
 }
 
@@ -61,13 +33,12 @@ export const Input: React.FC<InputProps> = ({
   placeholder,
   type = 'text',
   value,
-  size = 'medium',
   state = 'default',
   helperText,
   errorMessage,
   iconLeft,
   iconRight,
-  required = false,
+  optional = false,
   onChange,
   className = '',
 }) => {
@@ -79,7 +50,6 @@ export const Input: React.FC<InputProps> = ({
 
   const inputClasses = [
     baseClass,
-    `${baseClass}--${size}`,
     `${baseClass}--${state}`,
     iconLeft ? `${baseClass}--with-icon-left` : '',
     iconRight ? `${baseClass}--with-icon-right` : '',
@@ -92,12 +62,14 @@ export const Input: React.FC<InputProps> = ({
   return (
     <div className={wrapperClasses} data-component="input">
       {label && (
-        <label className={`${baseClass}__label`}>
-          {label}
-          {required && <span className={`${baseClass}__required`}>*</span>}
-        </label>
+        <div className={`${baseClass}__label-row`}>
+          <label className={`${baseClass}__label`}>
+            {label}
+          </label>
+          {optional && <span className={`${baseClass}__optional`}>(optional)</span>}
+        </div>
       )}
-      <div className={`${baseClass}__input-wrapper`}>
+      <div className={`${baseClass}__input-wrapper ${baseClass}__input-wrapper--${state}`}>
         {iconLeft && (
           <span className={`${baseClass}__icon ${baseClass}__icon--left`}>
             {iconLeft}
@@ -110,7 +82,6 @@ export const Input: React.FC<InputProps> = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
-          required={required}
         />
         {iconRight && (
           <span className={`${baseClass}__icon ${baseClass}__icon--right`}>
@@ -119,14 +90,18 @@ export const Input: React.FC<InputProps> = ({
         )}
       </div>
       {showError && (
-        <span className={`${baseClass}__message ${baseClass}__message--error`}>
-          {errorMessage}
-        </span>
+        <div className={`${baseClass}__message-row`}>
+          <span className={`${baseClass}__message ${baseClass}__message--error`}>
+            {errorMessage}
+          </span>
+        </div>
       )}
       {showHelper && (
-        <span className={`${baseClass}__message ${baseClass}__message--helper`}>
-          {helperText}
-        </span>
+        <div className={`${baseClass}__message-row`}>
+          <span className={`${baseClass}__message ${baseClass}__message--helper`}>
+            {helperText}
+          </span>
+        </div>
       )}
     </div>
   );
