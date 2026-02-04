@@ -51,3 +51,10 @@ export const Playground: Story = {
     disabled: false,
   },
 };
+parameters: {
+  design: {
+    type: 'figma',
+    url: 'Implement this design from Figma.
+@https://www.figma.com/design/aY6PTxhYjhJhxUgH77u0b1/Sparkline-Design-System?node-id=76-249&m=dev',
+  },
+}
