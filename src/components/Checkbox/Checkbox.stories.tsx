@@ -8,55 +8,34 @@ const meta: Meta<typeof Checkbox> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    label: {
+      control: 'text',
+      description: 'The label text for the checkbox',
+    },
+    checked: {
+      control: 'boolean',
+      description: 'Whether the checkbox is checked',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the checkbox is disabled',
+    },
+    indeterminate: {
+      control: 'boolean',
+      description: 'Whether the checkbox is in an indeterminate state',
+    },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
-    label: 'Checkbox',
-  },
-};
-
-export const Checked: Story = {
-  args: {
-    label: 'Checked',
-    checked: true,
-  },
-};
-
-export const Unchecked: Story = {
-  args: {
-    label: 'Unchecked',
+    label: 'Checkbox label',
     checked: false,
-  },
-};
-
-export const Indeterminate: Story = {
-  args: {
-    label: 'Indeterminate',
-    indeterminate: true,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled',
-    disabled: true,
-  },
-};
-
-export const DisabledChecked: Story = {
-  args: {
-    label: 'Disabled Checked',
-    checked: true,
-    disabled: true,
-  },
-};
-
-export const WithoutLabel: Story = {
-  args: {
-    checked: false,
+    disabled: false,
+    indeterminate: false,
   },
 };
