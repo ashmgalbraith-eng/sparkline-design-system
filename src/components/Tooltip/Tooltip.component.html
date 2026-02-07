@@ -1,0 +1,8 @@
+<div [class]="classes" data-component="tooltip">
+  <span *ngIf="variant === 'plain'" class="sparkline-tooltip__text">{{ text }}</span>
+  <ng-container *ngIf="variant === 'rich'">
+    <p *ngIf="showHeadline" class="sparkline-tooltip__headline">{{ headline }}</p>
+    <p *ngIf="showBodyText" class="sparkline-tooltip__body">{{ bodyText }}</p>
+    <a *ngIf="showTextLink" [href]="linkUrl" class="sparkline-tooltip__link">{{ linkText }}</a>
+  </ng-container>
+</div>

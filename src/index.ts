@@ -1,30 +1,14 @@
-// Component exports for Sparkline Design System
-export { Avatar } from './components/Avatar/Avatar';
-export type { AvatarProps } from './components/Avatar/Avatar';
+// Components
+export { AvatarComponent } from './components/Avatar/Avatar.component';
+export { BadgeComponent } from './components/Badge/Badge.component';
+export { ButtonComponent } from './components/Button/Button.component';
+export { ButtonGroupComponent, type ButtonGroupButton } from './components/ButtonGroup/ButtonGroup.component';
+export { CardComponent } from './components/Card/Card.component';
+export { CheckboxComponent } from './components/Checkbox/Checkbox.component';
+export { ChipComponent } from './components/Chip/Chip.component';
+export { InputComponent } from './components/Input/Input.component';
+export { SwitchComponent } from './components/Switch/Switch.component';
+export { TooltipComponent } from './components/Tooltip/Tooltip.component';
 
-export { Badge } from './components/Badge/Badge';
-export type { BadgeProps } from './components/Badge/Badge';
-
-export { Button } from './components/Button/Button';
-export type { ButtonProps } from './components/Button/Button';
-
-export { ButtonGroup } from './components/ButtonGroup/ButtonGroup';
-export type { ButtonGroupProps, ButtonGroupButton } from './components/ButtonGroup/ButtonGroup';
-
-export { Card } from './components/Card/Card';
-export type { CardProps } from './components/Card/Card';
-
-export { Checkbox } from './components/Checkbox/Checkbox';
-export type { CheckboxProps } from './components/Checkbox/Checkbox';
-
-export { Chip } from './components/Chip/Chip';
-export type { ChipProps } from './components/Chip/Chip';
-
-export { Input } from './components/Input/Input';
-export type { InputProps } from './components/Input/Input';
-
-export { Switch } from './components/Switch/Switch';
-export type { SwitchProps } from './components/Switch/Switch';
-
-// Export design tokens
+// Design tokens
 export * from './tokens/tokens';
