@@ -19,6 +19,7 @@
     "lib": ["ES2022", "dom"],
     "skipLibCheck": true
   },
+  "include": ["src", ".storybook"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

@@ -4,14 +4,14 @@ This file provides guidance for Claude Code when working with this codebase.
 
 ## Project Overview
 
-Sparkline Design System is a React component library built with TypeScript and Storybook. It implements reusable UI components based on designs from Figma.
+Sparkline Design System is an Angular component library built with TypeScript and Storybook. It implements reusable UI components based on designs from Figma.
 
 ## Tech Stack
 
-- **Framework**: React 18.2
-- **Language**: TypeScript 5.3
-- **Build Tool**: Vite 5
-- **Documentation**: Storybook 7.6
+- **Framework**: Angular 19
+- **Language**: TypeScript 5.7
+- **Build Tool**: Angular CLI / Webpack (via Storybook)
+- **Documentation**: Storybook 8.6
 - **Styling**: CSS (component-scoped CSS files)
 
 ## Commands
@@ -19,8 +19,7 @@ Sparkline Design System is a React component library built with TypeScript and S
 ```bash
 npm run storybook      # Start Storybook dev server on port 6006
 npm run build-storybook # Build static Storybook site
-npm run build          # TypeScript compile + Vite build
-npm run preview        # Preview production build
+npm run build          # Angular production build
 ```
 
 ## Project Structure
@@ -29,9 +28,9 @@ npm run preview        # Preview production build
 sparkline-storybook/
 ├── .storybook/           # Storybook configuration
 │   ├── main.ts           # Stories location, addons, framework config
-│   └── preview.ts        # Global decorators, parameters, backgrounds
+│   └── preview.ts        # Global parameters, backgrounds
 ├── src/
-│   ├── components/       # React components (each in own folder)
+│   ├── components/       # Angular standalone components (each in own folder)
 │   │   ├── Avatar/
 │   │   ├── Badge/
 │   │   ├── Button/
@@ -40,15 +39,17 @@ sparkline-storybook/
 │   │   ├── Checkbox/
 │   │   ├── Chip/
 │   │   ├── Input/
-│   │   └── Switch/
+│   │   ├── Switch/
+│   │   └── Tooltip/
 │   ├── docs/             # MDX documentation pages
-│   │   └── BrandIdentity/  # Brand docs (Colors.mdx, etc.)
+│   │   └── BrandIdentity/  # Brand docs (Colors.mdx, Typography.mdx)
 │   ├── styles/           # Global styles (global.css)
 │   ├── tokens/           # Design tokens (tokens.ts)
 │   └── index.ts          # Barrel file — exports all components + tokens
+├── angular.json          # Angular workspace config with Storybook builders
 ├── package.json
 ├── tsconfig.json
-└── vite.config.ts
+└── tsconfig.storybook.json
 ```
 
 ## Component Architecture
@@ -56,16 +57,18 @@ sparkline-storybook/
 Each component follows this structure:
 ```
 ComponentName/
-├── ComponentName.tsx         # React component
-├── ComponentName.css         # Scoped styles
-└── ComponentName.stories.tsx # Storybook stories
+├── ComponentName.component.ts    # Angular standalone component
+├── ComponentName.component.html  # Component template
+├── ComponentName.css             # Scoped styles
+└── ComponentName.stories.ts      # Storybook stories
 ```
 
 ### Adding New Components
 
 1. Create folder: `src/components/[ComponentName]/`
-2. Create `.tsx`, `.css`, and `.stories.tsx` files
-3. Export the component **and its props interface** from `src/index.ts`
+2. Create `.component.ts`, `.component.html`, `.css`, and `.stories.ts` files
+3. Use `standalone: true` with `CommonModule` import
+4. Export the component from `src/index.ts`
 
 ## Design Tokens
 
@@ -90,21 +93,25 @@ Color naming convention: `{category}-{shade}` (e.g., `primary-50`, `neutral-30`)
 - **Chip**: Tag/filter components
 - **Input**: Text input with label, helper text, error states, icons
 - **Switch**: Toggle switch with animations
+- **Tooltip**: Plain and rich variants with headline, body, and link
 
 ## Storybook Conventions
 
 - Stories use CSF3 format (Component Story Format)
 - Use `autodocs` tag for automatic documentation
-- Include controls for all component props
+- Include controls for all component `@Input()` properties
 - Add stories for all component variants and states
-- Framework: `@storybook/react-vite`
+- Framework: `@storybook/angular`
 - Addons: `addon-links`, `addon-essentials`, `addon-interactions`
 - Preview backgrounds: light, dark, gray
+- Storybook is built via Angular builder (configured in angular.json)
 
 ## Code Style
 
-- TypeScript strict mode enabled (`noUnusedLocals`, `noUnusedParameters`, `noFallthroughCasesInSwitch`)
-- Component props defined as interfaces (e.g., `ButtonProps`)
-- CSS classes follow BEM-like component naming (e.g., `.button`, `.button--large`)
+- TypeScript strict mode enabled
+- Angular standalone components with `CommonModule`
+- Component inputs via `@Input()` decorators
+- Component outputs via `@Output()` EventEmitter
+- CSS classes follow BEM-like component naming (e.g., `.sparkline-button`, `.sparkline-button--large`)
 - No CSS-in-JS; use separate CSS files
 - Fonts: Roboto (buttons, captions), Manrope (headings)
