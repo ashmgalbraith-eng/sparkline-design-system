@@ -1,0 +1,76 @@
+.sparkline-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* Size variants */
+.sparkline-badge--small {
+  padding: 2px 8px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.sparkline-badge--medium {
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.sparkline-badge--large {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Dot variant */
+.sparkline-badge--dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.sparkline-badge--dot.sparkline-badge--small {
+  width: 6px;
+  height: 6px;
+}
+
+.sparkline-badge--dot.sparkline-badge--large {
+  width: 10px;
+  height: 10px;
+}
+
+/* Color variants - Using Sparkline tokens */
+.sparkline-badge--primary {
+  background-color: #783ef9;  /* $primary-50 */
+  color: #ffffff;
+}
+
+.sparkline-badge--secondary {
+  background-color: #006ADB;  /* $alert-info */
+  color: #ffffff;
+}
+
+.sparkline-badge--success {
+  background-color: #008a22;  /* $alert-success */
+  color: #ffffff;
+}
+
+.sparkline-badge--warning {
+  background-color: #f59e0b;  /* $alert-warning */
+  color: #ffffff;
+}
+
+.sparkline-badge--error {
+  background-color: #ef4444;  /* $alert-error */
+  color: #ffffff;
+}
+
+.sparkline-badge--neutral {
+  background-color: #e5e7eb;
+  color: #374151;
+}

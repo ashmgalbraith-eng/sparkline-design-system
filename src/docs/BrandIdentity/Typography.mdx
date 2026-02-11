@@ -1,0 +1,285 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Brand Identity/Typography" />
+
+# Typography
+
+The Sparkline type system uses **Roboto** as the primary typeface across all components and applications. The type scale is designed to be readable, accessible, and responsive across breakpoints.
+
+<a href="https://fonts.google.com/specimen/Roboto" target="_blank" rel="noopener noreferrer">Download Roboto from Google Fonts &rarr;</a>
+
+---
+
+## Typeface
+
+<div style={{ display: 'flex', gap: '48px', alignItems: 'flex-start', marginBottom: '32px' }}>
+  <div style={{ background: '#d9d9d9', borderRadius: '8px', padding: '32px 40px', display: 'inline-flex', alignItems: 'center' }}>
+    <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 800, fontSize: '56px', lineHeight: 1, color: '#000' }}>Roboto</span>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', paddingTop: '8px' }}>
+    <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '32px', lineHeight: 1, color: '#000' }}>Regular 400</span>
+    <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: '32px', lineHeight: 1, color: '#000' }}>Bold 700</span>
+    <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 800, fontSize: '32px', lineHeight: 1, color: '#000' }}>ExtraBold 800</span>
+  </div>
+</div>
+
+## Base Value
+
+<div style={{ background: '#d9d9d9', borderRadius: '8px', padding: '32px 40px', display: 'inline-flex', alignItems: 'center', marginBottom: '32px' }}>
+  <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 800, fontSize: '56px', lineHeight: 1, color: '#000' }}>1rem = 16px</span>
+</div>
+
+All typography values are defined in pixels and can be converted to `rem` using the base value of **16px = 1rem**.
+
+---
+
+## Type Scale
+
+The type scale adapts across three breakpoints: **Desktop** (large), **Tablet** (medium), and **Mobile** (small). Heading styles reduce in size at smaller breakpoints for readability, while body text and UI elements remain consistent.
+
+export const TypeRow = ({ name, desktop, tablet, mobile }) => (
+  <tr>
+    <td style={{ padding: '16px 12px', fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: '14px', color: '#3D3D3D', verticalAlign: 'top', whiteSpace: 'nowrap', borderBottom: '1px solid #E5E7EB' }}>
+      {name}
+    </td>
+    <td style={{ padding: '16px 12px', verticalAlign: 'top', borderBottom: '1px solid #E5E7EB' }}>
+      <span style={{ fontFamily: desktop.fontFamily || 'Roboto, sans-serif', fontWeight: desktop.weight, fontSize: `${desktop.size}px`, lineHeight: desktop.lineHeight, letterSpacing: desktop.letterSpacing || '0px', color: '#000', display: 'block', marginBottom: '8px' }}>
+        {name}
+      </span>
+      <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '12px', color: '#757575', lineHeight: 1.5 }}>
+        {desktop.size}px / {parseFloat((desktop.size / 16).toFixed(4))}rem &middot; {desktop.weightLabel} &middot; LH: {desktop.lineHeightLabel}
+        {desktop.letterSpacing && desktop.letterSpacing !== '0px' ? ` · LS: ${desktop.letterSpacing}` : ''}
+      </span>
+    </td>
+    <td style={{ padding: '16px 12px', verticalAlign: 'top', borderBottom: '1px solid #E5E7EB' }}>
+      <span style={{ fontFamily: tablet.fontFamily || 'Roboto, sans-serif', fontWeight: tablet.weight, fontSize: `${tablet.size}px`, lineHeight: tablet.lineHeight, letterSpacing: tablet.letterSpacing || '0px', color: '#141414', display: 'block', marginBottom: '8px' }}>
+        {name}
+      </span>
+      <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '12px', color: '#757575', lineHeight: 1.5 }}>
+        {tablet.size}px / {parseFloat((tablet.size / 16).toFixed(4))}rem &middot; {tablet.weightLabel} &middot; LH: {tablet.lineHeightLabel}
+        {tablet.letterSpacing && tablet.letterSpacing !== '0px' ? ` · LS: ${tablet.letterSpacing}` : ''}
+      </span>
+    </td>
+    <td style={{ padding: '16px 12px', verticalAlign: 'top', borderBottom: '1px solid #E5E7EB' }}>
+      <span style={{ fontFamily: mobile.fontFamily || 'Roboto, sans-serif', fontWeight: mobile.weight, fontSize: `${mobile.size}px`, lineHeight: mobile.lineHeight, letterSpacing: mobile.letterSpacing || '0px', color: '#141414', display: 'block', marginBottom: '8px' }}>
+        {name}
+      </span>
+      <span style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '12px', color: '#757575', lineHeight: 1.5 }}>
+        {mobile.size}px / {parseFloat((mobile.size / 16).toFixed(4))}rem &middot; {mobile.weightLabel} &middot; LH: {mobile.lineHeightLabel}
+        {mobile.letterSpacing && mobile.letterSpacing !== '0px' ? ` · LS: ${mobile.letterSpacing}` : ''}
+      </span>
+    </td>
+  </tr>
+);
+
+<div style={{ overflowX: 'auto' }}>
+<table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: 'Roboto, sans-serif' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid #D6D6D6' }}>
+      <th style={{ padding: '12px', textAlign: 'left', fontWeight: 700, fontSize: '14px', color: '#000', width: '120px' }}>Style</th>
+      <th style={{ padding: '12px', textAlign: 'left', fontWeight: 700, fontSize: '14px', color: '#000' }}>Desktop <span style={{ fontWeight: 400, color: '#757575' }}>(Large)</span></th>
+      <th style={{ padding: '12px', textAlign: 'left', fontWeight: 700, fontSize: '14px', color: '#000' }}>Tablet <span style={{ fontWeight: 400, color: '#757575' }}>(Medium)</span></th>
+      <th style={{ padding: '12px', textAlign: 'left', fontWeight: 700, fontSize: '14px', color: '#000' }}>Mobile <span style={{ fontWeight: 400, color: '#757575' }}>(Small)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <TypeRow
+      name="Display"
+      desktop={{ size: 56, weight: 800, weightLabel: 'ExtraBold 800', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 48, weight: 800, weightLabel: 'ExtraBold 800', lineHeight: 1.1, lineHeightLabel: '110%' }}
+      mobile={{ size: 40, weight: 800, weightLabel: 'ExtraBold 800', lineHeight: 1.15, lineHeightLabel: '115%' }}
+    />
+    <TypeRow
+      name="Headline 1"
+      desktop={{ size: 48, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 40, weight: 700, weightLabel: 'Bold 700', lineHeight: 1.15, lineHeightLabel: '115%', letterSpacing: '-1px' }}
+      mobile={{ size: 32, weight: 700, weightLabel: 'Bold 700', lineHeight: 1.2, lineHeightLabel: '120%', letterSpacing: '-0.5px' }}
+    />
+    <TypeRow
+      name="Headline 2"
+      desktop={{ size: 40, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 32, weight: 700, weightLabel: 'Bold 700', lineHeight: 1.2, lineHeightLabel: '120%', letterSpacing: '-0.5px' }}
+      mobile={{ size: 24, weight: 700, weightLabel: 'Bold 700', lineHeight: 1.25, lineHeightLabel: '125%' }}
+    />
+    <TypeRow
+      name="Headline 3"
+      desktop={{ size: 32, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 24, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 20, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+    <TypeRow
+      name="Headline 4"
+      desktop={{ size: 20, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 20, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 20, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+    <TypeRow
+      name="Subtitle 1"
+      desktop={{ size: 18, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 18, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 18, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+    <TypeRow
+      name="Label"
+      desktop={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+    <TypeRow
+      name="Body 1"
+      desktop={{ size: 16, weight: 400, weightLabel: 'Regular 400', lineHeight: '24px', lineHeightLabel: '24px / 150%' }}
+      tablet={{ size: 16, weight: 400, weightLabel: 'Regular 400', lineHeight: '24px', lineHeightLabel: '24px / 150%' }}
+      mobile={{ size: 16, weight: 400, weightLabel: 'Regular 400', lineHeight: '24px', lineHeightLabel: '24px / 150%' }}
+    />
+    <TypeRow
+      name="Body 2"
+      desktop={{ size: 14, weight: 400, weightLabel: 'Regular 400', lineHeight: '20px', lineHeightLabel: '20px / ~143%' }}
+      tablet={{ size: 14, weight: 400, weightLabel: 'Regular 400', lineHeight: '20px', lineHeightLabel: '20px / ~143%' }}
+      mobile={{ size: 14, weight: 400, weightLabel: 'Regular 400', lineHeight: '20px', lineHeightLabel: '20px / ~143%' }}
+    />
+    <TypeRow
+      name="Caption"
+      desktop={{ size: 12, weight: 400, weightLabel: 'Regular 400', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 12, weight: 400, weightLabel: 'Regular 400', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 12, weight: 400, weightLabel: 'Regular 400', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+    <TypeRow
+      name="Button"
+      desktop={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      tablet={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+      mobile={{ size: 16, weight: 700, weightLabel: 'Bold 700', lineHeight: '100%', lineHeightLabel: '100%' }}
+    />
+  </tbody>
+</table>
+</div>
+
+---
+
+## Token Reference
+
+### Display
+```
+Desktop:  56px / 3.5rem   · ExtraBold 800 · Line Height: 100%
+Tablet:   48px / 3rem     · ExtraBold 800 · Line Height: 110%
+Mobile:   40px / 2.5rem   · ExtraBold 800 · Line Height: 115%
+```
+
+### Headline 1
+```
+Desktop:  48px / 3rem     · Bold 700 · Line Height: 100%
+Tablet:   40px / 2.5rem   · Bold 700 · Line Height: 115% · Letter Spacing: -1px
+Mobile:   32px / 2rem     · Bold 700 · Line Height: 120% · Letter Spacing: -0.5px
+```
+
+### Headline 2
+```
+Desktop:  40px / 2.5rem   · Bold 700 · Line Height: 100%
+Tablet:   32px / 2rem     · Bold 700 · Line Height: 120% · Letter Spacing: -0.5px
+Mobile:   24px / 1.5rem   · Bold 700 · Line Height: 125%
+```
+
+### Headline 3
+```
+Desktop:  32px / 2rem     · Bold 700 · Line Height: 100%
+Tablet:   24px / 1.5rem   · Bold 700 · Line Height: 100%
+Mobile:   20px / 1.25rem  · Bold 700 · Line Height: 100%
+```
+
+### Headline 4
+```
+All:      20px / 1.25rem  · Bold 700 · Line Height: 100%
+```
+
+### Subtitle 1
+```
+All:      18px / 1.125rem · Bold 700 · Line Height: 100%
+```
+
+### Label
+```
+All:      16px / 1rem     · Bold 700 · Line Height: 100%
+```
+
+### Body 1
+```
+All:      16px / 1rem     · Regular 400 · Line Height: 24px (150%)
+```
+
+### Body 2
+```
+All:      14px / 0.875rem · Regular 400 · Line Height: 20px (~143%)
+```
+
+### Caption
+```
+All:      12px / 0.75rem  · Regular 400 · Line Height: 100%
+```
+
+### Button
+```
+All:      16px / 1rem     · Bold 700 · Line Height: 100%
+```
+
+---
+
+## Usage Guidelines
+
+### Responsive Behavior
+
+The type scale uses three breakpoints that map to device categories:
+
+| Breakpoint | Label | Applies to |
+|---|---|---|
+| **Large** | Desktop | Screens wider than 1024px |
+| **Medium** | Tablet | Screens between 768px and 1024px |
+| **Small** | Mobile | Screens narrower than 768px |
+
+Heading styles (Display through Headline 3) scale down at smaller breakpoints to maintain readability and proportion. Body text, labels, and UI elements remain constant across all breakpoints.
+
+### When to Use Each Style
+
+| Style | Use for |
+|---|---|
+| **Display** | Hero sections, marketing headlines |
+| **Headline 1** | Page titles |
+| **Headline 2** | Section headings |
+| **Headline 3** | Card titles, subsection headings |
+| **Headline 4** | Group labels, sidebar headings |
+| **Subtitle 1** | Supporting text beneath headings |
+| **Label** | Form labels, table headers |
+| **Body 1** | Primary body copy, paragraphs |
+| **Body 2** | Secondary body copy, helper text |
+| **Caption** | Timestamps, metadata, fine print |
+| **Button** | Button labels, CTAs |
+
+### Implementation
+
+```css
+/* Responsive type scale using CSS custom properties */
+:root {
+  --type-display: 800 3.5rem/100% 'Roboto', sans-serif;
+  --type-h1: 700 3rem/100% 'Roboto', sans-serif;
+  --type-h2: 700 2.5rem/100% 'Roboto', sans-serif;
+  --type-h3: 700 2rem/100% 'Roboto', sans-serif;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  :root {
+    --type-display: 800 3rem/110% 'Roboto', sans-serif;
+    --type-h1: 700 2.5rem/115% 'Roboto', sans-serif;
+    --type-h2: 700 2rem/120% 'Roboto', sans-serif;
+    --type-h3: 700 1.5rem/100% 'Roboto', sans-serif;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    --type-display: 800 2.5rem/115% 'Roboto', sans-serif;
+    --type-h1: 700 2rem/120% 'Roboto', sans-serif;
+    --type-h2: 700 1.5rem/125% 'Roboto', sans-serif;
+    --type-h3: 700 1.25rem/100% 'Roboto', sans-serif;
+  }
+}
+```
