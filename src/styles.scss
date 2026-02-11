@@ -1,0 +1,36 @@
+/* Sparkline Design System — Global Tokens */
+
+:root {
+  /* Primary palette */
+  --primary-20: #e4d8fe;
+  --primary-30: #c9b2fd;
+  --primary-50: #783ef9;
+  --primary-60: #2c00ac;
+
+  /* Neutral palette */
+  --neutral-10: #ffffff;
+  --neutral-20: #f1f1f1;
+  --neutral-40: #bababa;
+
+  /* Radius */
+  --radius-4: 4px;
+  --radius-24: 24px;
+
+  /* Shadows */
+  --shadow-button: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  --shadow-menu: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

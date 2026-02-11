@@ -1,0 +1,161 @@
+// ─── Sparkline Button ───────────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-4);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: normal;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease,
+              border-color 0.15s ease,
+              color 0.15s ease,
+              box-shadow 0.15s ease,
+              border-radius 0.15s ease;
+  user-select: none;
+}
+
+// ─── Sizes ──────────────────────────────────────────────────────────
+
+:host(.sp-button--large) {
+  height: 48px;
+}
+
+:host(.sp-button--small) {
+  height: 36px;
+}
+
+// ─── Filled variant ─────────────────────────────────────────────────
+
+:host(.sp-button--filled) {
+  color: var(--neutral-10);
+
+  &.sp-button--default {
+    background-color: var(--primary-50);
+    box-shadow: var(--shadow-button);
+  }
+
+  &.sp-button--hover {
+    background-color: var(--primary-60);
+    box-shadow: var(--shadow-button);
+  }
+
+  &.sp-button--pressed {
+    background-color: var(--primary-60);
+    border-radius: var(--radius-24);
+    box-shadow: var(--shadow-button);
+  }
+
+  &.sp-button--focus {
+    background-color: var(--primary-60);
+    box-shadow: var(--shadow-button);
+    outline: 4px solid var(--primary-30);
+    outline-offset: -4px;
+  }
+
+  &.sp-button--disabled {
+    background-color: var(--neutral-40);
+    color: var(--neutral-20);
+    box-shadow: none;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Outlined variant ───────────────────────────────────────────────
+
+:host(.sp-button--outlined) {
+  background-color: var(--neutral-10);
+  border: 1px solid var(--primary-50);
+  color: var(--primary-50);
+
+  &.sp-button--default {
+    border-color: var(--primary-50);
+    color: var(--primary-50);
+  }
+
+  &.sp-button--hover {
+    border-color: var(--primary-60);
+    color: var(--primary-60);
+  }
+
+  &.sp-button--pressed {
+    border-color: var(--primary-60);
+    color: var(--primary-60);
+    border-radius: var(--radius-24);
+  }
+
+  &.sp-button--focus {
+    border: 4px solid var(--primary-60);
+    color: var(--primary-60);
+  }
+
+  &.sp-button--disabled {
+    border-color: var(--neutral-40);
+    color: var(--neutral-40);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Text variant ───────────────────────────────────────────────────
+
+:host(.sp-button--text) {
+  background-color: var(--neutral-10);
+  border: none;
+  color: var(--primary-50);
+
+  &.sp-button--default {
+    color: var(--primary-50);
+  }
+
+  &.sp-button--hover {
+    color: var(--primary-60);
+  }
+
+  &.sp-button--pressed {
+    border: 1px solid var(--primary-60);
+    color: var(--primary-60);
+    border-radius: var(--radius-24);
+  }
+
+  &.sp-button--focus {
+    border: 4px solid var(--primary-60);
+    color: var(--primary-60);
+  }
+
+  &.sp-button--disabled {
+    color: var(--neutral-40);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Child elements ─────────────────────────────────────────────────
+
+.sp-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sp-button__label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
