@@ -1,0 +1,53 @@
+// ─── Sparkline Badge ────────────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid var(--neutral-10);
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+  color: var(--neutral-10);
+}
+
+// ─── Dot variant ────────────────────────────────────────────────────
+
+:host(.sp-badge--dot) {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+}
+
+// ─── Color variants ─────────────────────────────────────────────────
+
+:host(.sp-badge--primary) {
+  background-color: var(--primary-50);
+}
+
+:host(.sp-badge--success) {
+  background-color: var(--alert-success);
+}
+
+:host(.sp-badge--error) {
+  background-color: var(--alert-error);
+}
+
+:host(.sp-badge--warning) {
+  background-color: var(--alert-warning);
+}
+
+:host(.sp-badge--info) {
+  background-color: var(--alert-info);
+}
+
+// ─── Label ──────────────────────────────────────────────────────────
+
+.sp-badge__label {
+  flex-shrink: 0;
+}

@@ -1,0 +1,113 @@
+// ─── Sparkline Avatar ───────────────────────────────────────────────
+
+.sp-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: var(--primary-60);
+  color: var(--neutral-10);
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+// ─── Sizes ──────────────────────────────────────────────────────────
+
+.sp-avatar--medium {
+  width: 40px;
+  height: 40px;
+}
+
+.sp-avatar--small {
+  width: 32px;
+  height: 32px;
+}
+
+// ─── Initials ───────────────────────────────────────────────────────
+
+.sp-avatar__initials {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+
+  .sp-avatar--medium & {
+    font-size: 16px;
+  }
+
+  .sp-avatar--small & {
+    font-size: 12px;
+  }
+}
+
+// ─── Image ──────────────────────────────────────────────────────────
+
+.sp-avatar__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.sp-avatar--image {
+  background-color: transparent;
+}
+
+// ─── Icon ───────────────────────────────────────────────────────────
+
+.sp-avatar__icon {
+  .sp-avatar--medium & {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sp-avatar--small & {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// ─── Status indicator ───────────────────────────────────────────────
+
+.sp-avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 999px;
+  background-color: var(--alert-success, #22c55e);
+  border: 1px solid var(--neutral-10);
+
+  .sp-avatar--medium & {
+    width: 10px;
+    height: 10px;
+  }
+
+  .sp-avatar--small & {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+// ─── Notification badge ─────────────────────────────────────────────
+
+.sp-avatar__notification {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background-color: var(--primary-50);
+  border: 1px solid var(--neutral-10);
+  color: var(--neutral-10);
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+}
