@@ -1,0 +1,107 @@
+// ─── Sparkline Chip ─────────────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: background-color 0.15s ease,
+              border-color 0.15s ease,
+              color 0.15s ease,
+              box-shadow 0.15s ease;
+}
+
+// ─── Outlined style ─────────────────────────────────────────────────
+
+:host(.sp-chip--outlined) {
+  background-color: var(--neutral-10);
+  border: 1px solid var(--neutral-40);
+  color: var(--primary-60);
+
+  &.sp-chip--hover {
+    border-color: var(--primary-50);
+    color: var(--primary-50);
+  }
+
+  &.sp-chip--pressed {
+    border-color: var(--primary-60);
+    background-color: var(--primary-20);
+    color: var(--primary-60);
+  }
+
+  &.sp-chip--focus {
+    border-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-30);
+    color: var(--primary-50);
+  }
+
+  &.sp-chip--disabled {
+    border-color: var(--neutral-40);
+    color: var(--neutral-40);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Filled style ───────────────────────────────────────────────────
+
+:host(.sp-chip--filled) {
+  background-color: var(--primary-50);
+  border: 1px solid transparent;
+  color: var(--neutral-10);
+
+  &.sp-chip--hover {
+    background-color: var(--primary-60);
+  }
+
+  &.sp-chip--pressed {
+    background-color: var(--primary-60);
+  }
+
+  &.sp-chip--focus {
+    background-color: var(--primary-60);
+    box-shadow: 0 0 0 2px var(--primary-30);
+  }
+
+  &.sp-chip--disabled {
+    background-color: var(--neutral-40);
+    color: var(--neutral-20);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Child elements ─────────────────────────────────────────────────
+
+.sp-chip__icon {
+  flex-shrink: 0;
+}
+
+.sp-chip__label {
+  white-space: nowrap;
+}
+
+.sp-chip__close {
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  :host(.sp-chip--disabled) & {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
