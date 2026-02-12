@@ -1,0 +1,110 @@
+// ─── Sparkline Input ────────────────────────────────────────────────
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'Roboto', sans-serif;
+  width: 280px;
+}
+
+// ─── Label ──────────────────────────────────────────────────────────
+
+.sp-input__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-60);
+  line-height: normal;
+}
+
+// ─── Field container ────────────────────────────────────────────────
+
+.sp-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-4);
+  border: 1px solid var(--neutral-40);
+  background-color: var(--neutral-10);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  // Default
+  &.sp-input--default {
+    border-color: var(--neutral-40);
+  }
+
+  // Focus
+  &.sp-input--focus {
+    border-color: var(--primary-50);
+    box-shadow: 0 0 0 2px var(--primary-30);
+  }
+
+  // Error
+  &.sp-input--error {
+    border-color: var(--alert-error);
+  }
+
+  // Disabled
+  &.sp-input--disabled {
+    background-color: var(--neutral-20);
+    border-color: var(--neutral-40);
+    cursor: not-allowed;
+  }
+}
+
+// ─── Input field ────────────────────────────────────────────────────
+
+.sp-input__field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primary-60);
+  line-height: normal;
+
+  &::placeholder {
+    color: var(--neutral-40);
+  }
+
+  &:disabled {
+    color: var(--neutral-40);
+    cursor: not-allowed;
+  }
+}
+
+// ─── Icons ──────────────────────────────────────────────────────────
+
+.sp-input__icon {
+  flex-shrink: 0;
+  color: var(--neutral-40);
+
+  .sp-input--focus & {
+    color: var(--primary-50);
+  }
+
+  &.sp-input__icon--error {
+    color: var(--alert-error);
+  }
+
+  .sp-input--disabled & {
+    color: var(--neutral-40);
+  }
+}
+
+// ─── Helper / Error text ────────────────────────────────────────────
+
+.sp-input__helper {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--neutral-40);
+  line-height: normal;
+
+  &.sp-input__helper--error {
+    color: var(--alert-error);
+  }
+}
