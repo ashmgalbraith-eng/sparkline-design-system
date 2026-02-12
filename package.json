@@ -24,13 +24,12 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.19",
-    "@angular/cli": "^19.2.19",
-    "@angular/compiler-cli": "^19.2.0",
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@storybook/angular": "^8.6.0",
     "@storybook/addon-essentials": "^8.6.15",
     "@storybook/addon-interactions": "^8.6.15",
     "@storybook/addon-onboarding": "^8.6.15",
-    "@storybook/angular": "^8.6.15",
     "@storybook/blocks": "^8.6.15",
     "@storybook/test": "^8.6.15",
     "@types/jasmine": "~5.1.0",
@@ -41,6 +40,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "storybook": "^8.6.15",
-    "typescript": "~5.7.2"
+    "typescript": "~5.5.0"
   }
 }

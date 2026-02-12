@@ -1,9 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run storybook:*)",
-      "Bash(curl:*)",
-      "Bash(npm install:*)"
+      "Bash(git -C /Users/ashleygalbraith/Desktop/Portfolio/Sparkline/DS/sparkline-design-system add src/app/components/chip/)",
+      "Bash(git -C /Users/ashleygalbraith/Desktop/Portfolio/Sparkline/DS/sparkline-design-system commit -m \"$\\(cat <<''EOF''\nAdd Chip component with clearable/plain types and outlined/filled styles\n\nChip supports two types \\(clearable with close icon, plain\\), two styles\n\\(outlined, filled\\), five interactive states, and optional left/right\nicons. Stories use controls for all variant exploration.\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
