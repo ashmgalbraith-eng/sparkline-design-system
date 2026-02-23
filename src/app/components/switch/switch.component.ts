@@ -1,15 +1,24 @@
-{
-  "use strict";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-  import { Component } from '@angular/core';
+@Component({
+  selector: 'sp-switch',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './switch.component.html',
+  styleUrls: ['./switch.component.css'],
+})
+export class SwitchComponent {
+  @Input() checked = false;
+  @Input() disabled = false;
+  @Input() label = '';
 
-  @Component({
-    selector: 'app-switch',
-    templateUrl: './switch.component.html',
-    styleUrls: ['./switch.component.css']
-  })
+  @Output() checkedChange = new EventEmitter<boolean>();
 
-  export class SwitchComponent {
-    isChecked = false;
+  toggle(): void {
+    if (!this.disabled) {
+      this.checked = !this.checked;
+      this.checkedChange.emit(this.checked);
+    }
   }
 }

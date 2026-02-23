@@ -10,7 +10,18 @@
       "Bash(npx ng run sparkline-ds:storybook)",
       "Bash(lsof:*)",
       "Bash(xargs kill -9)",
-      "Bash(npx ng run:*)"
+      "Bash(npx ng run:*)",
+      "Bash(tree:*)",
+      "Bash(npm install:*)",
+      "Bash(npm view:*)",
+      "Bash(node_modules/.bin/ng:*)",
+      "Bash(node_modules/.bin/storybook:*)",
+      "Bash(node -e:*)",
+      "Bash(python3:*)",
+      "Bash(node_modules/.bin/tsc:*)",
+      "Bash(npm run storybook:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

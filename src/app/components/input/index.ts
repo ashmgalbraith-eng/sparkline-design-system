@@ -1,1 +1,2 @@
-export { InputComponent, InputState } from './input.component';
+export { InputComponent } from './input.component';
+export type { InputState } from './input.component';

@@ -1,1 +1,2 @@
-export { ButtonComponent, ButtonType, ButtonSize, ButtonState } from './button.component';
+export { ButtonComponent } from './button.component';
+export type { ButtonType, ButtonSize, ButtonState } from './button.component';
