@@ -1,0 +1,8 @@
+name: figma-desktop
+version: 1.0.0
+schema: v1
+
+mcpServers:
+  - name: figma-desktop
+    type: http
+    url: http://127.0.0.1:3845/mcp

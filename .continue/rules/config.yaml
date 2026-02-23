@@ -1,0 +1,10 @@
+# This tells the agent exactly what environment it is in
+name: "My Angular Project"
+rules:
+  - name: "Version Guard"
+    alwaysApply: true
+    content: |
+      You are an agent in a legacy Angular project.
+      - Angular Version: 14.x (Do NOT use standalone components)
+      - Storybook Version: 6.x (Use the stories.js format)
+      - Never suggest updates or syntax from newer versions.
