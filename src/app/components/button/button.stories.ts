@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
+import { ICON_REGISTRY } from '../icon/icon-registry';
 
 const meta: Meta<ButtonComponent> = {
   title: 'Components/Button',
@@ -22,6 +23,14 @@ const meta: Meta<ButtonComponent> = {
     showLeftIcon: { control: 'boolean' },
     showRightIcon: { control: 'boolean' },
     showText: { control: 'boolean' },
+    leftIconName: {
+      control: 'select',
+      options: Object.keys(ICON_REGISTRY),
+    },
+    rightIconName: {
+      control: 'select',
+      options: Object.keys(ICON_REGISTRY),
+    },
   },
   args: {
     label: 'Button',
@@ -31,179 +40,31 @@ const meta: Meta<ButtonComponent> = {
     showLeftIcon: true,
     showRightIcon: true,
     showText: true,
+    leftIconName: 'arrow-left',
+    rightIconName: 'arrow-right',
   },
 };
 
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-// ─── Primary stories ────────────────────────────────────────────────
-
-export const FilledDefault: Story = {
-  name: 'Filled / Default',
-  args: {
-    type: 'filled',
-    state: 'default',
-  },
+export const Filled: Story = {
+  args: { type: 'filled' },
 };
 
-export const FilledHover: Story = {
-  name: 'Filled / Hover',
-  args: {
-    type: 'filled',
-    state: 'hover',
-  },
+export const Outlined: Story = {
+  args: { type: 'outlined' },
 };
 
-export const FilledPressed: Story = {
-  name: 'Filled / Pressed',
-  args: {
-    type: 'filled',
-    state: 'pressed',
-  },
+export const Text: Story = {
+  args: { type: 'text' },
 };
-
-export const FilledFocus: Story = {
-  name: 'Filled / Focus',
-  args: {
-    type: 'filled',
-    state: 'focus',
-  },
-};
-
-export const FilledDisabled: Story = {
-  name: 'Filled / Disabled',
-  args: {
-    type: 'filled',
-    state: 'disabled',
-  },
-};
-
-export const FilledSmall: Story = {
-  name: 'Filled / Small',
-  args: {
-    type: 'filled',
-    size: 'small',
-  },
-};
-
-// ─── Outlined stories ───────────────────────────────────────────────
-
-export const OutlinedDefault: Story = {
-  name: 'Outlined / Default',
-  args: {
-    type: 'outlined',
-    state: 'default',
-  },
-};
-
-export const OutlinedHover: Story = {
-  name: 'Outlined / Hover',
-  args: {
-    type: 'outlined',
-    state: 'hover',
-  },
-};
-
-export const OutlinedPressed: Story = {
-  name: 'Outlined / Pressed',
-  args: {
-    type: 'outlined',
-    state: 'pressed',
-  },
-};
-
-export const OutlinedFocus: Story = {
-  name: 'Outlined / Focus',
-  args: {
-    type: 'outlined',
-    state: 'focus',
-  },
-};
-
-export const OutlinedDisabled: Story = {
-  name: 'Outlined / Disabled',
-  args: {
-    type: 'outlined',
-    state: 'disabled',
-  },
-};
-
-export const OutlinedSmall: Story = {
-  name: 'Outlined / Small',
-  args: {
-    type: 'outlined',
-    size: 'small',
-  },
-};
-
-// ─── Text stories ───────────────────────────────────────────────────
-
-export const TextDefault: Story = {
-  name: 'Text / Default',
-  args: {
-    type: 'text',
-    state: 'default',
-  },
-};
-
-export const TextHover: Story = {
-  name: 'Text / Hover',
-  args: {
-    type: 'text',
-    state: 'hover',
-  },
-};
-
-export const TextPressed: Story = {
-  name: 'Text / Pressed',
-  args: {
-    type: 'text',
-    state: 'pressed',
-  },
-};
-
-export const TextFocus: Story = {
-  name: 'Text / Focus',
-  args: {
-    type: 'text',
-    state: 'focus',
-  },
-};
-
-export const TextDisabled: Story = {
-  name: 'Text / Disabled',
-  args: {
-    type: 'text',
-    state: 'disabled',
-  },
-};
-
-export const TextSmall: Story = {
-  name: 'Text / Small',
-  args: {
-    type: 'text',
-    size: 'small',
-  },
-};
-
-// ─── Icon-only & label-only ─────────────────────────────────────────
 
 export const IconOnly: Story = {
-  name: 'Icon Only',
   args: {
     type: 'filled',
     showText: false,
     showLeftIcon: false,
     showRightIcon: true,
-  },
-};
-
-export const LabelOnly: Story = {
-  name: 'Label Only',
-  args: {
-    type: 'filled',
-    showLeftIcon: false,
-    showRightIcon: false,
   },
 };

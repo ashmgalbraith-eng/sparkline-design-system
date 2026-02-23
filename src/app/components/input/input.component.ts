@@ -1,13 +1,14 @@
 import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { IconComponent } from '../icon/icon.component';
 
 export type InputState = 'default' | 'focus' | 'error' | 'disabled';
 
 @Component({
   selector: 'sp-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, IconComponent],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   providers: [

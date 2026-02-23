@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 export type ChipType = 'clearable' | 'plain';
 export type ChipStyle = 'outlined' | 'filled';
@@ -8,7 +9,7 @@ export type ChipState = 'default' | 'hover' | 'pressed' | 'focus' | 'disabled';
 @Component({
   selector: 'sp-chip',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './chip.component.html',
   styleUrls: ['./chip.component.scss'],
   host: {

@@ -4,19 +4,13 @@
 <!-- Field container -->
 <div [ngClass]="hostClasses">
   <!-- Left icon -->
-  <svg
+  <sp-icon
     *ngIf="showLeftIcon"
     class="sp-input__icon"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
-      fill="currentColor"
-    />
-  </svg>
+    name="search-outline"
+    [size]="20"
+    color="currentColor"
+  ></sp-icon>
 
   <!-- Input -->
   <input
@@ -31,34 +25,22 @@
   />
 
   <!-- Right icon -->
-  <svg
+  <sp-icon
     *ngIf="showRightIcon"
     class="sp-input__icon"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z"
-      fill="currentColor"
-    />
-  </svg>
+    name="eye-outline"
+    [size]="20"
+    color="currentColor"
+  ></sp-icon>
 
   <!-- Error icon (shown in error state) -->
-  <svg
+  <sp-icon
     *ngIf="fieldState === 'error' && !showRightIcon"
     class="sp-input__icon sp-input__icon--error"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"
-      fill="currentColor"
-    />
-  </svg>
+    name="alert-circle-outline"
+    [size]="20"
+    color="currentColor"
+  ></sp-icon>
 </div>
 
 <!-- Helper text / Error text -->

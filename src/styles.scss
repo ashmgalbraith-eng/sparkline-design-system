@@ -2,15 +2,37 @@
 
 :root {
   /* Primary palette */
+  --primary-10: #f1ecfe;
   --primary-20: #e4d8fe;
   --primary-30: #c9b2fd;
+  --primary-40: #a078fb;
   --primary-50: #783ef9;
   --primary-60: #2c00ac;
+  --primary-70: #00007a;
+  --primary-80: #000060;
+  --primary-90: #000047;
+
+  /* Secondary palette */
+  --secondary-10: #fbe5f6;
+  --secondary-20: #f8ccec;
+  --secondary-30: #f4b2e3;
+  --secondary-40: #ed80d0;
+  --secondary-50: #db00a1;
+  --secondary-60: #8e0055;
+  --secondary-70: #75003b;
+  --secondary-80: #5c0022;
+  --secondary-90: #420008;
 
   /* Neutral palette */
   --neutral-10: #ffffff;
   --neutral-20: #f1f1f1;
+  --neutral-30: #d6d6d6;
   --neutral-40: #bababa;
+  --neutral-50: #757575;
+  --neutral-60: #626060;
+  --neutral-70: #3d3d3d;
+  --neutral-80: #303030;
+  --neutral-90: #000000;
 
   /* Alert palette */
   --alert-success: #22c55e;

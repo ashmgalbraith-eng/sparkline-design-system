@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from '../icon/icon.component';
 
 export type ButtonType = 'filled' | 'outlined' | 'text';
 export type ButtonSize = 'large' | 'small';
@@ -8,7 +9,7 @@ export type ButtonState = 'default' | 'hover' | 'pressed' | 'focus' | 'disabled'
 @Component({
   selector: 'sp-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   host: {
@@ -33,6 +34,8 @@ export class ButtonComponent {
   @Input() state: ButtonState = 'default';
   @Input() showLeftIcon = false;
   @Input() showRightIcon = false;
+  @Input() leftIconName = 'arrow-left';
+  @Input() rightIconName = 'arrow-right';
   @Input() showText = true;
 
   @Output() buttonClick = new EventEmitter<MouseEvent>();
