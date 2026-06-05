@@ -1,0 +1,21 @@
+<div class="sp-slider" [class.sp-slider--disabled]="disabled">
+  <div class="sp-slider__track-wrap" [style.--fill]="fillPercent + '%'">
+    <div class="sp-slider__track">
+      <div class="sp-slider__fill" [style.width.%]="fillPercent"></div>
+    </div>
+    <input
+      class="sp-slider__input"
+      type="range"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [value]="value"
+      [disabled]="disabled"
+      [attr.aria-valuenow]="value"
+      [attr.aria-valuemin]="min"
+      [attr.aria-valuemax]="max"
+      (input)="onInput($event)"
+    />
+  </div>
+  <span *ngIf="showValue" class="sp-slider__value">{{ value }}</span>
+</div>

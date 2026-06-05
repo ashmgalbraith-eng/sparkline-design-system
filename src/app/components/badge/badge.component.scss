@@ -5,45 +5,48 @@
   align-items: center;
   justify-content: center;
   height: 20px;
+  min-width: 20px;
   padding: 0 6px;
-  border-radius: 999px;
-  border: 1px solid var(--neutral-10);
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-surface-default);
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
   line-height: normal;
   white-space: nowrap;
-  color: var(--neutral-10);
+  color: var(--color-text-inverse);
 }
 
 // ─── Dot variant ────────────────────────────────────────────────────
 
 :host(.sp-badge--dot) {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
+  min-width: unset;
   padding: 0;
+  border: none;
 }
 
-// ─── Color variants ─────────────────────────────────────────────────
+// ─── Status variants ─────────────────────────────────────────────────
 
-:host(.sp-badge--primary) {
-  background-color: var(--primary-50);
+:host(.sp-badge--notification) {
+  background-color: var(--color-surface-brand);
 }
 
 :host(.sp-badge--success) {
-  background-color: var(--alert-success);
+  background-color: var(--color-surface-success);
 }
 
 :host(.sp-badge--error) {
-  background-color: var(--alert-error);
+  background-color: var(--color-surface-error);
 }
 
 :host(.sp-badge--warning) {
-  background-color: var(--alert-warning);
+  background-color: var(--color-surface-warning);
 }
 
 :host(.sp-badge--info) {
-  background-color: var(--alert-info);
+  background-color: var(--color-surface-info);
 }
 
 // ─── Label ──────────────────────────────────────────────────────────

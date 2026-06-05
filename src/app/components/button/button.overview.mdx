@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.stories';
+
+<Meta title="Components/Button/Overview" />
+
+# Button
+
+Buttons trigger actions and communicate what will happen when a user interacts with them. Use the **filled** variant for primary actions, **outlined** for secondary actions, and **text** for tertiary or inline actions.
+
+<Canvas of={ButtonStories.Playground} />
+
+## Usage guidelines
+
+Choose the button type based on visual hierarchy: a page should have at most one primary (filled) action, with secondary and text variants used for supporting actions. Always write button labels in sentence case using clear, action-oriented language.

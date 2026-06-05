@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './avatar.stories';
+
+<Meta title="Components/Avatar/Overview" />
+
+# Avatar
+
+Avatars represent a user or entity. They can display initials, an icon, or a profile image, and support notification counts and status indicators.
+
+<Canvas of={AvatarStories.Playground} />
+
+## Usage guidelines
+
+Use the text variant with initials when no image is available. Reserve notification badges for contexts where counts are meaningful (e.g. unread messages). Status indicators communicate presence or availability.

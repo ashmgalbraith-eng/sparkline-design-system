@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Chip/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Chip does not carry an implicit ARIA role. The appropriate role depends on usage:
+
+- **Filter chip** (toggles a filter on/off) — add `role="checkbox"` and `aria-checked` to the host, or group chips in a `role="group"` with individual `aria-pressed` attributes.
+- **Input chip** (represents a value in a field, e.g. multi-select tag) — expose each chip as part of a labelled region and announce additions/removals via an `aria-live` region.
+- **Clearable chip** — the remove button should have `aria-label="Remove [chip label]"` so its purpose is clear to screen reader users.
+
+`aria-disabled="true"` and `tabindex="-1"` are applied automatically when `state` is `'disabled'`.
+
+## Keyboard navigation
+
+| Key | Behaviour |
+|-----|-----------|
+| `Tab` | Moves focus to the chip (skipped when disabled). |
+| `Enter` / `Space` | Activates the chip (application-level handler required). |
+| `Delete` / `Backspace` | Conventionally used to remove an input chip — wire to the `removed` output in the host. |
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.4.3 Contrast | AA | Label text meets minimum contrast in all states. |
+| 2.1.1 Keyboard | A | Focusable and interactive via keyboard. |
+| 2.4.7 Focus Visible | AA | A visible focus ring is shown on keyboard focus. |
+| 4.1.2 Name, Role, Value | AA | Add `role` and state attributes appropriate to the usage pattern; provide `aria-label` on the remove button. |

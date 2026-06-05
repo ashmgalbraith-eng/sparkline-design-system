@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ChipStories from './chip.stories';
+
+<Meta title="Components/Chip/Overview" />
+
+# Chip
+
+Chips are compact, interactive elements used to represent attributes, filters, or selections. The clearable variant includes a remove action; the plain variant is static.
+
+<Canvas of={ChipStories.Playground} />
+
+## Usage guidelines
+
+Use chips to show applied filters, tags, or multi-select values. The clearable variant should be used whenever the user can remove the chip. Keep chip labels short and specific — one to three words.

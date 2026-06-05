@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as RadioStories from './radio.stories';
+
+<Meta title="Components/Radio/Overview" />
+
+# Radio
+
+Radio buttons allow users to select exactly one option from a group of mutually exclusive choices.
+
+<Canvas of={RadioStories.Playground} />
+
+## Usage guidelines
+
+Group radio buttons with a shared label that describes the choice. Always pre-select the most common or safe default. If users need to select multiple options, use checkboxes instead.

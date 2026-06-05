@@ -1,13 +1,13 @@
 <!-- Label -->
-<label *ngIf="label" class="sp-input__label">{{ label }}</label>
+<label *ngIf="label" class="sp-input__label">{{ label }}<span *ngIf="showOptional" class="sp-input__label-optional">(optional)</span></label>
 
 <!-- Field container -->
-<div [ngClass]="hostClasses">
+<div [ngClass]="['sp-input', 'sp-input--' + fieldState]">
   <!-- Left icon -->
   <sp-icon
-    *ngIf="showLeftIcon"
+    *ngIf="showLeftIcon && leftIconName"
     class="sp-input__icon"
-    name="search-outline"
+    [name]="leftIconName"
     [size]="20"
     color="currentColor"
   ></sp-icon>
@@ -15,7 +15,7 @@
   <!-- Input -->
   <input
     class="sp-input__field"
-    type="text"
+    [type]="type"
     [placeholder]="placeholder"
     [value]="value"
     [disabled]="state === 'disabled'"
@@ -26,16 +26,16 @@
 
   <!-- Right icon -->
   <sp-icon
-    *ngIf="showRightIcon"
+    *ngIf="showRightIcon && rightIconName"
     class="sp-input__icon"
-    name="eye-outline"
+    [name]="rightIconName"
     [size]="20"
     color="currentColor"
   ></sp-icon>
 
-  <!-- Error icon (shown in error state) -->
+  <!-- Error icon (shown in error state when no right icon) -->
   <sp-icon
-    *ngIf="fieldState === 'error' && !showRightIcon"
+    *ngIf="fieldState === 'error' && !(showRightIcon && rightIconName)"
     class="sp-input__icon sp-input__icon--error"
     name="alert-circle-outline"
     [size]="20"
@@ -43,7 +43,7 @@
   ></sp-icon>
 </div>
 
-<!-- Helper text / Error text -->
+<!-- Helper / Error / Success text -->
 <span
   *ngIf="fieldState === 'error' && errorText"
   class="sp-input__helper sp-input__helper--error"
@@ -51,7 +51,13 @@
   {{ errorText }}
 </span>
 <span
-  *ngIf="fieldState !== 'error' && helperText"
+  *ngIf="fieldState === 'success' && helperText"
+  class="sp-input__helper sp-input__helper--success"
+>
+  {{ helperText }}
+</span>
+<span
+  *ngIf="fieldState !== 'error' && fieldState !== 'success' && helperText"
   class="sp-input__helper"
 >
   {{ helperText }}

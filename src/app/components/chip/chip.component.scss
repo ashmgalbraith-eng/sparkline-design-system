@@ -3,81 +3,48 @@
 :host {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   height: 32px;
-  padding: 0 12px;
-  border-radius: 999px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  padding: 8px;
+  border-radius: 24px;
+  border: 1px solid transparent;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-body-2-size);
+  font-weight: var(--type-body-2-weight);
   line-height: normal;
   cursor: pointer;
   outline: none;
   user-select: none;
-  transition: background-color 0.15s ease,
-              border-color 0.15s ease,
-              color 0.15s ease,
-              box-shadow 0.15s ease;
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+  transition: border-color 0.15s ease,
+              border-width 0.15s ease,
+              border-radius 0.15s ease,
+              background-color 0.15s ease,
+              color 0.15s ease;
 }
 
-// ─── Outlined style ─────────────────────────────────────────────────
+// ─── States ─────────────────────────────────────────────────────────
 
-:host(.sp-chip--outlined) {
-  background-color: var(--neutral-10);
-  border: 1px solid var(--neutral-40);
-  color: var(--primary-60);
-
-  &.sp-chip--hover {
-    border-color: var(--primary-50);
-    color: var(--primary-50);
-  }
-
-  &.sp-chip--pressed {
-    border-color: var(--primary-60);
-    background-color: var(--primary-20);
-    color: var(--primary-60);
-  }
-
-  &.sp-chip--focus {
-    border-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-30);
-    color: var(--primary-50);
-  }
-
-  &.sp-chip--disabled {
-    border-color: var(--neutral-40);
-    color: var(--neutral-40);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+:host(.sp-chip--hover) {
+  border-color: var(--color-action-strong-border);
 }
 
-// ─── Filled style ───────────────────────────────────────────────────
+:host(.sp-chip--pressed) {
+  border: 2px solid var(--color-action-strong-border);
+}
 
-:host(.sp-chip--filled) {
-  background-color: var(--primary-50);
-  border: 1px solid transparent;
-  color: var(--neutral-10);
+:host(.sp-chip--focus) {
+  border: 2px solid var(--color-action-strong-border);
+  border-radius: var(--radius-lg);
+}
 
-  &.sp-chip--hover {
-    background-color: var(--primary-60);
-  }
-
-  &.sp-chip--pressed {
-    background-color: var(--primary-60);
-  }
-
-  &.sp-chip--focus {
-    background-color: var(--primary-60);
-    box-shadow: 0 0 0 2px var(--primary-30);
-  }
-
-  &.sp-chip--disabled {
-    background-color: var(--neutral-40);
-    color: var(--neutral-20);
-    cursor: not-allowed;
-    pointer-events: none;
-  }
+:host(.sp-chip--disabled) {
+  background-color: var(--color-surface-subtle-disabled);
+  border: 2px solid var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 // ─── Child elements ─────────────────────────────────────────────────
@@ -93,7 +60,7 @@
 .sp-chip__close {
   flex-shrink: 0;
   cursor: pointer;
-  border-radius: 999px;
+  color: var(--color-text-secondary);
   transition: opacity 0.15s ease;
 
   &:hover {

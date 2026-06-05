@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Card/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Card is a layout container with no implicit ARIA role. The appropriate semantics depend on the content and context:
+
+- If the card represents a self-contained piece of content (e.g. an article preview), wrap projected content in `<article>` or add `role="article"` to the card itself and a heading as the first child.
+- If the card is interactive (e.g. clickable to navigate), add `role="button"` or make the entire card a focusable `<a>` element with a descriptive `aria-label`.
+- If the card is purely structural, no additional ARIA is needed — let the projected content carry its own semantics.
+
+## Keyboard navigation
+
+Card itself is not focusable. Any interactive elements inside (buttons, links) follow standard keyboard behaviour. If the entire card is interactive, ensure it receives focus via `tabindex="0"` and responds to `Enter` / `Space`.
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.3.1 Info and Relationships | A | Use appropriate heading levels inside cards to convey structure. |
+| 1.4.11 Non-text Contrast | AA | Card borders and shadow boundaries meet minimum contrast against their background. |
+| 2.4.3 Focus Order | A | Focus order within a card follows DOM order; do not use CSS to visually reorder content. |
+| 4.1.2 Name, Role, Value | AA | Provide descriptive `aria-label` when the card is interactive. |

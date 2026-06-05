@@ -1,0 +1,155 @@
+// ─── Sparkline Checkbox ───────────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-body-1-size);
+  font-weight: var(--type-body-1-weight);
+  line-height: var(--type-body-1-line);
+  color: var(--color-text-primary);
+}
+
+// ─── Touch target (40×40) ────────────────────────────────────────────
+
+.sp-checkbox__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+    pointer-events: none;
+  }
+}
+
+// ─── Box (20×20) ─────────────────────────────────────────────────────
+
+.sp-checkbox__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border-subtle);
+  background-color: transparent;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+// ─── Icons ───────────────────────────────────────────────────────────
+
+.sp-checkbox__check,
+.sp-checkbox__dash {
+  position: absolute;
+  width: 12px;
+  color: var(--color-text-inverse);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.sp-checkbox__dash {
+  width: 10px;
+}
+
+// ─── Label ───────────────────────────────────────────────────────────
+
+.sp-checkbox__label {
+  color: var(--color-text-primary);
+}
+
+// ─── Checked ─────────────────────────────────────────────────────────
+
+:host(.sp-checkbox--checked) {
+  .sp-checkbox__box {
+    border-color: var(--color-surface-brand);
+    background-color: var(--color-surface-brand);
+  }
+
+  .sp-checkbox__check {
+    opacity: 1;
+  }
+}
+
+// ─── Indeterminate ───────────────────────────────────────────────────
+
+:host(.sp-checkbox--indeterminate) {
+  .sp-checkbox__box {
+    border-color: var(--color-surface-brand);
+    background-color: var(--color-surface-brand);
+  }
+
+  .sp-checkbox__dash {
+    opacity: 1;
+  }
+}
+
+// ─── Hover ───────────────────────────────────────────────────────────
+
+:host(.sp-checkbox--hover) {
+  .sp-checkbox__control::before {
+    background-color: var(--color-surface-hover-bg);
+  }
+}
+
+// ─── Focus ───────────────────────────────────────────────────────────
+
+:host(.sp-checkbox--focus) {
+  .sp-checkbox__control::before {
+    background-color: var(--color-surface-brand-subtle);
+  }
+
+  .sp-checkbox__box {
+    outline: 2px solid var(--primary-30);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Pressed ─────────────────────────────────────────────────────────
+
+:host(.sp-checkbox--pressed) {
+  .sp-checkbox__control::before {
+    background-color: var(--color-surface-brand-subtle);
+  }
+}
+
+// ─── Disabled ────────────────────────────────────────────────────────
+
+:host(.sp-checkbox--disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+
+  .sp-checkbox__box {
+    border-color: var(--color-border-disabled);
+  }
+
+  .sp-checkbox__label {
+    color: var(--color-text-disabled);
+  }
+}
+
+:host(.sp-checkbox--disabled.sp-checkbox--checked),
+:host(.sp-checkbox--disabled.sp-checkbox--indeterminate) {
+  .sp-checkbox__box {
+    background-color: var(--color-surface-disabled);
+    border-color: var(--color-border-disabled);
+  }
+}

@@ -1,18 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ICON_REGISTRY, IconName } from './icon-registry';
 import { IconComponent } from './icon.component';
 
 @Component({
   selector: 'sp-icon-gallery',
   standalone: true,
-  imports: [CommonModule, IconComponent],
+  imports: [IconComponent],
   template: `
     <div class="icon-gallery">
-      <div class="icon-gallery__item" *ngFor="let name of iconNames">
-        <sp-icon [name]="name" [size]="size" [color]="color"></sp-icon>
-        <span class="icon-gallery__label">{{ name }}</span>
-      </div>
+      @for (name of iconNames; track name) {
+        <div class="icon-gallery__item">
+          <sp-icon [name]="name" [size]="size" [color]="color"></sp-icon>
+          <span class="icon-gallery__label">{{ name }}</span>
+        </div>
+      }
     </div>
   `,
   styles: [

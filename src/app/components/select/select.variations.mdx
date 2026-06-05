@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './select.all-stories.stories';
+
+<Meta title="Components/Select/Variations" />
+
+# Variations
+
+- [Multi-select](#multi-select)
+- [With validation](#with-validation)
+
+## Multi-select
+
+When `multiple` is true, selected values render as chips inside the trigger. Each chip has a remove button.
+
+<Canvas of={SelectStories.MultiSelect} />
+
+## With validation
+
+Error and disabled states communicate field validity and availability to the user.
+
+<Canvas of={SelectStories.WithValidation} />

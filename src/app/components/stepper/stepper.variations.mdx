@@ -1,0 +1,28 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as StepperStories from './stepper.all-stories.stories';
+
+<Meta title="Components/Stepper/Variations" />
+
+# Variations
+
+- [Vertical](#vertical)
+- [With error](#with-error)
+- [All completed](#all-completed)
+
+## Vertical
+
+The vertical orientation stacks steps top-to-bottom with a connecting line. Use this in sidebar or narrow-column layouts.
+
+<Canvas of={StepperStories.Vertical} />
+
+## With error
+
+A step with `state: 'error'` shows an alert icon and error text color. This signals that the user needs to resolve an issue before continuing.
+
+<Canvas of={StepperStories.WithError} />
+
+## All completed
+
+When `activeStep` exceeds the last index, all steps show the completed state.
+
+<Canvas of={StepperStories.AllCompleted} />

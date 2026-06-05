@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type BadgeColor = 'primary' | 'success' | 'error' | 'warning' | 'info';
+export type BadgeType = 'numeric' | 'dot';
+export type BadgeStatus = 'success' | 'error' | 'warning' | 'info' | 'notification';
 
 @Component({
   selector: 'sp-badge',
@@ -14,15 +15,15 @@ export type BadgeColor = 'primary' | 'success' | 'error' | 'warning' | 'info';
   },
 })
 export class BadgeComponent {
-  @Input() label = '999+';
-  @Input() color: BadgeColor = 'primary';
-  @Input() dot = false;
+  @Input() label = '9';
+  @Input() type: BadgeType = 'numeric';
+  @Input() status: BadgeStatus = 'notification';
 
   get hostClasses(): string {
     return [
       'sp-badge',
-      `sp-badge--${this.color}`,
-      this.dot ? 'sp-badge--dot' : '',
+      `sp-badge--${this.type}`,
+      `sp-badge--${this.status}`,
     ]
       .filter(Boolean)
       .join(' ');

@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Avatar/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Avatar is a presentational element and carries no interactive role by default. When used as a link or button (e.g. a profile photo that navigates to a profile page), wrap it in an `<a>` or `<button>` and ensure the wrapper has a descriptive `aria-label`.
+
+When `type` is `'image'`, always supply a meaningful `imageAlt` value. If the image is purely decorative in context, pass `imageAlt=""` so screen readers skip it.
+
+When `showNotification` is `true`, the count is visible but not announced automatically. Pair the avatar with a live region or expose the count via `aria-label` on the surrounding interactive element so assistive technology communicates the unread count.
+
+## Keyboard navigation
+
+Avatar itself is not focusable. Any interactive behaviour (clicking to open a profile, triggering a menu) must be handled by a focusable wrapper element.
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.1.1 Non-text Content | AA | Provide `imageAlt` when `type="image"`. |
+| 1.4.3 Contrast | AA | Initials on the default overlay background meet minimum contrast at all sizes. |
+| 4.1.2 Name, Role, Value | AA | Add `aria-label` on interactive wrappers; do not rely on the avatar alone to convey state. |

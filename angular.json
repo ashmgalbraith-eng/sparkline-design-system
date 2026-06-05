@@ -123,7 +123,7 @@
           "options": {
             "configDir": ".storybook",
             "tsConfig": ".storybook/tsconfig.json",
-            "browserTarget": "sparkline-ds:build",
+            "browserTarget": "sparkline-ds:build:development",
             "compodoc": false,
             "port": 6006
           }
@@ -133,7 +133,7 @@
           "options": {
             "configDir": ".storybook",
             "tsConfig": ".storybook/tsconfig.json",
-            "browserTarget": "sparkline-ds:build",
+            "browserTarget": "sparkline-ds:build:development",
             "compodoc": false,
             "outputDir": "storybook-static"
           }

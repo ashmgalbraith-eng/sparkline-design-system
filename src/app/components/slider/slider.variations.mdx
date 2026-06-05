@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as SliderStories from './slider.all-stories.stories';
+
+<Meta title="Components/Slider/Variations" />
+
+# Variations
+
+- [Stepped](#stepped)
+- [Disabled](#disabled)
+
+## Stepped
+
+Setting a `step` value constrains the thumb to discrete positions along the track.
+
+<Canvas of={SliderStories.Stepped} />
+
+## Disabled
+
+A disabled slider is non-interactive. The track and thumb use the disabled color tokens.
+
+<Canvas of={SliderStories.Disabled} />

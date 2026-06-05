@@ -1,6 +1,18 @@
-<label class="sp-switch" [class.sp-switch--disabled]="disabled" (click)="toggle()">
-  <span class="sp-switch__track" [class.sp-switch__track--checked]="checked">
+<button
+  class="sp-switch"
+  [class.sp-switch--disabled]="disabled"
+  [attr.aria-checked]="checked"
+  [attr.aria-disabled]="disabled"
+  [disabled]="disabled"
+  role="switch"
+  type="button"
+  (click)="toggle()"
+>
+  <span
+    class="sp-switch__track"
+    [class.sp-switch__track--checked]="checked"
+    [class.sp-switch__track--disabled]="disabled"
+  >
     <span class="sp-switch__thumb"></span>
   </span>
-  <span *ngIf="label" class="sp-switch__label">{{ label }}</span>
-</label>
+</button>

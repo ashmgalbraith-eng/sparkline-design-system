@@ -1,0 +1,82 @@
+<!-- Label -->
+<label *ngIf="label" class="sp-select__label">{{ label }}</label>
+
+<!-- Trigger -->
+<div
+  class="sp-select__trigger"
+  [class]="'sp-select__trigger sp-select__trigger--' + fieldState"
+  [class.sp-select__trigger--open]="isOpen"
+  [attr.tabindex]="isDisabled ? -1 : 0"
+  [attr.aria-expanded]="isOpen"
+  [attr.aria-haspopup]="'listbox'"
+  role="combobox"
+  (click)="toggleOpen()"
+  (focus)="onTriggerFocus()"
+  (blur)="onTriggerBlur()"
+>
+  <!-- Multi: chips -->
+  <div *ngIf="multiple && selectedValues.length; else singleDisplay" class="sp-select__chips">
+    <span *ngFor="let val of selectedValues" class="sp-select__chip">
+      {{ labelFor(val) }}
+      <button class="sp-select__chip-remove" type="button" (click)="removeChip(val, $event)" [attr.aria-label]="'Remove ' + labelFor(val)">
+        <sp-icon name="close-circle-fill" [size]="14" color="currentColor"></sp-icon>
+      </button>
+    </span>
+  </div>
+
+  <!-- Single / empty -->
+  <ng-template #singleDisplay>
+    <span class="sp-select__value" [class.sp-select__value--placeholder]="!displayValue">
+      {{ displayValue || placeholder }}
+    </span>
+  </ng-template>
+
+  <!-- Chevron -->
+  <sp-icon
+    class="sp-select__chevron"
+    [class.sp-select__chevron--open]="isOpen"
+    [name]="isOpen ? 'chevron-up' : 'chevron-down'"
+    [size]="20"
+    color="currentColor"
+  ></sp-icon>
+</div>
+
+<!-- Dropdown panel -->
+<div *ngIf="isOpen" class="sp-select__panel" role="listbox" [attr.aria-multiselectable]="multiple">
+  <button
+    *ngFor="let option of options"
+    class="sp-select__option"
+    [class.sp-select__option--selected]="isSelected(option)"
+    [class.sp-select__option--disabled]="option.disabled"
+    [disabled]="option.disabled"
+    role="option"
+    [attr.aria-selected]="isSelected(option)"
+    type="button"
+    (click)="selectOption(option)"
+  >
+    <sp-icon
+      *ngIf="multiple"
+      class="sp-select__option-check"
+      [name]="isSelected(option) ? 'check-circle-outline' : 'check-circle-outline'"
+      [size]="16"
+      color="currentColor"
+      [style.opacity]="isSelected(option) ? 1 : 0"
+    ></sp-icon>
+    <sp-icon
+      *ngIf="!multiple && isSelected(option)"
+      class="sp-select__option-check"
+      name="check"
+      [size]="16"
+      color="currentColor"
+    ></sp-icon>
+    <span>{{ option.label }}</span>
+  </button>
+</div>
+
+<!-- Helper / Error text -->
+<span *ngIf="fieldState === 'error' && errorText" class="sp-select__helper sp-select__helper--error">
+  {{ errorText }}
+</span>
+<span *ngIf="fieldState !== 'error' && helperText" class="sp-select__helper">
+  {{ helperText }}
+</span>

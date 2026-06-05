@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Primitives/Border" />
+
+# Border
+
+Border tokens define stroke widths and styles used for outlines, dividers, and interactive states.
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', marginTop: '32px', marginBottom: '32px' }}>
+  {[
+    { label: '1px', width: '1px' },
+    { label: '2px', width: '2px' },
+    { label: '4px', width: '4px' },
+  ].map(({ label, width }) => (
+    <div key={label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+      <div style={{
+        width: '120px',
+        height: '48px',
+        border: `${width} solid #783EF9`,
+        borderRadius: '8px',
+        background: 'transparent',
+      }} />
+      <span style={{ fontFamily: 'Roboto, sans-serif', fontSize: '12px', color: '#757575' }}>{label}</span>
+    </div>
+  ))}
+</div>
+
+## Border Widths
+
+| Value | Usage |
+|---|---|
+| `1px` | Default borders — inputs, cards, dividers |
+| `2px` | Focus rings, active states |
+| `4px` | Emphasis borders, accents |
+
+## Border Colors
+
+Border colors reference the semantic color tokens:
+
+| Token | Value | Usage |
+|---|---|---|
+| `$color-border-default` | `$primary-50` | Default interactive borders |
+| `$color-border-subtle` | `$neutral-30` | Subtle dividers and outlines |
+| `$color-border-strong` | `$neutral-80` | High-contrast borders |
+| `$color-border-disabled` | `$neutral-40` | Disabled state borders |
+
+## Implementation
+
+```css
+.input          { border: 1px solid var(--color-border-subtle); }
+.input:focus    { border: 2px solid var(--color-border-default); }
+.input:disabled { border: 1px solid var(--color-border-disabled); }
+.divider        { border-bottom: 1px solid var(--color-border-subtle); }
+```

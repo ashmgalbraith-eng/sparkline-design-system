@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/ButtonGroup/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Button Group implements the [Toolbar pattern](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/) from the WAI-ARIA Authoring Practices. Wrap the component in a `role="toolbar"` container and provide an `aria-label` describing the group's purpose, e.g. `aria-label="Text alignment"`.
+
+Each individual button should convey its selected state. When `showLabel` is `false` (icon-only), add `aria-label` to each item's markup or provide a tooltip so the purpose of each button is clear.
+
+The active button should carry `aria-pressed="true"` or be represented within a `role="radiogroup"` / `role="radio"` pattern if selection is mutually exclusive (one active at a time).
+
+## Keyboard navigation
+
+| Key | Behaviour |
+|-----|-----------|
+| `Tab` | Moves focus into the group. |
+| `Arrow Left / Right` | Moves focus between buttons within the group (roving tabindex pattern recommended). |
+| `Enter` / `Space` | Selects the focused button. |
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.3.1 Info and Relationships | A | Use `aria-pressed` or `role="radio"` to convey selection state programmatically. |
+| 1.4.3 Contrast | AA | Button labels and icons meet minimum contrast in enabled and disabled states. |
+| 2.1.1 Keyboard | A | All buttons must be reachable and activatable by keyboard. |
+| 4.1.2 Name, Role, Value | AA | Provide `aria-label` for icon-only buttons; expose active state via `aria-pressed`. |

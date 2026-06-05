@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
 
-export type InputState = 'default' | 'focus' | 'error' | 'disabled';
+export type InputState = 'default' | 'focus' | 'error' | 'success' | 'disabled';
 
 @Component({
   selector: 'sp-input',
@@ -25,6 +25,10 @@ export class InputComponent implements ControlValueAccessor {
   @Input() helperText = '';
   @Input() errorText = '';
   @Input() state: InputState = 'default';
+  @Input() showOptional = false;
+  @Input() type = 'text';
+  @Input() leftIconName = '';
+  @Input() rightIconName = '';
   @Input() showLeftIcon = false;
   @Input() showRightIcon = false;
 
@@ -39,6 +43,7 @@ export class InputComponent implements ControlValueAccessor {
   get fieldState(): InputState {
     if (this.state === 'disabled') return 'disabled';
     if (this.state === 'error') return 'error';
+    if (this.state === 'success') return 'success';
     if (this._focused) return 'focus';
     return this.state;
   }

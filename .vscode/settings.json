@@ -1,0 +1,10 @@
+{
+  "editor.suggest.autoImports": false,
+}
+module.exports = async () => {
+  const config = await loadConfig();
+
+  delete config.storiesOf.Foundations.Icons;
+
+  return config;
+};

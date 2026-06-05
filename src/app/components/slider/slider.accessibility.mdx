@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Slider/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Slider renders a native `<input type="range">` element, which carries `role="slider"` implicitly and exposes `aria-valuemin`, `aria-valuemax`, and `aria-valuenow` automatically via the browser.
+
+- Always provide a visible label associated with the input (via `<label for="...">`) or pass `aria-label` / `aria-labelledby` so screen readers announce the slider's purpose.
+- When the numeric value has a unit (e.g. "px", "%", "dB"), use `aria-valuetext` to provide a human-readable string (e.g. `"50%"`) instead of relying on the raw number.
+
+## Keyboard navigation
+
+Native range input keyboard behaviour:
+
+| Key | Behaviour |
+|-----|-----------|
+| `Tab` | Moves focus to the slider (skipped when `disabled`). |
+| `Arrow Right` / `Arrow Up` | Increases value by one `step`. |
+| `Arrow Left` / `Arrow Down` | Decreases value by one `step`. |
+| `Page Up` | Increases value by a larger increment (browser default, typically 10% of range). |
+| `Page Down` | Decreases value by a larger increment. |
+| `Home` | Sets value to `min`. |
+| `End` | Sets value to `max`. |
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.3.1 Info and Relationships | A | Label must be programmatically associated with the input. |
+| 1.4.3 Contrast | AA | Track and thumb meet minimum contrast against the page background. |
+| 2.1.1 Keyboard | A | Fully operable via keyboard using native range input behaviour. |
+| 2.4.7 Focus Visible | AA | The thumb receives a visible focus indicator when focused via keyboard. |
+| 4.1.2 Name, Role, Value | AA | Native `<input type="range">` provides role, min, max, and current value; supply a label and `aria-valuetext` where appropriate. |

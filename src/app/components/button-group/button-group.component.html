@@ -1,0 +1,19 @@
+<button
+  *ngFor="let item of items; let i = index"
+  class="sp-button-group__button"
+  [class.sp-button-group__button--active]="i === activeIndex"
+  [class.sp-button-group__button--inactive]="i !== activeIndex"
+  [class.sp-button-group__button--large]="size === 'large'"
+  [class.sp-button-group__button--small]="size === 'small'"
+  type="button"
+  [disabled]="disabled"
+  (click)="select(i)"
+>
+  <span *ngIf="showLeftIcon" class="sp-button-group__icon">
+    <sp-icon [name]="item.leftIconName" [size]="24" color="currentColor"></sp-icon>
+  </span>
+  <span *ngIf="showLabel" class="sp-button-group__label">{{ item.label }}</span>
+  <span *ngIf="showRightIcon" class="sp-button-group__icon">
+    <sp-icon [name]="item.rightIconName" [size]="24" color="currentColor"></sp-icon>
+  </span>
+</button>

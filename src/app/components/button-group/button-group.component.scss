@@ -1,0 +1,116 @@
+// ─── Sparkline Button Group ──────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 1px;
+  background-color: var(--color-border-default);
+  border: 2px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+// ─── Button base ─────────────────────────────────────────────────────
+
+.sp-button-group__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: 0;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-button-size);
+  font-weight: var(--type-button-weight);
+  line-height: var(--type-button-line);
+  letter-spacing: var(--type-button-tracking);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 0.15s ease,
+              color 0.15s ease;
+}
+
+// ─── Sizes ───────────────────────────────────────────────────────────
+
+.sp-button-group__button--large {
+  height: 48px;
+}
+
+.sp-button-group__button--small {
+  height: 36px;
+}
+
+// ─── Active (selected) button ─────────────────────────────────────────
+
+.sp-button-group__button--active {
+  background-color: var(--color-surface-brand);
+  color: var(--color-text-inverse);
+
+  &:hover {
+    background-color: var(--color-action-brand-border);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-action-brand-border);
+    outline: 4px solid var(--primary-30);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Inactive button ─────────────────────────────────────────────────
+
+.sp-button-group__button--inactive {
+  background-color: var(--color-surface-default);
+  color: var(--color-text-brand);
+
+  &:hover {
+    background-color: var(--color-surface-hover-bg);
+  }
+
+  &:focus-visible {
+    outline: 4px solid var(--primary-30);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Disabled state ───────────────────────────────────────────────────
+
+:host.sp-button-group--disabled {
+  border-color: var(--color-border-disabled);
+  background-color: var(--color-border-disabled);
+
+  .sp-button-group__button {
+    background-color: var(--color-surface-disabled);
+    color: var(--color-text-disabled);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--color-surface-disabled);
+    }
+  }
+}
+
+// ─── Child elements ──────────────────────────────────────────────────
+
+.sp-button-group__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sp-button-group__label {
+  flex-shrink: 0;
+  white-space: nowrap;
+}

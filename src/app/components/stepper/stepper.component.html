@@ -1,0 +1,36 @@
+<ol
+  class="sp-stepper"
+  [class.sp-stepper--horizontal]="orientation === 'horizontal'"
+  [class.sp-stepper--vertical]="orientation === 'vertical'"
+>
+  <li
+    *ngFor="let step of steps; let i = index"
+    class="sp-stepper__step"
+    [class]="'sp-stepper__step sp-stepper__step--' + getStepState(i)"
+  >
+    <!-- Step indicator + connector -->
+    <div class="sp-stepper__head">
+      <div class="sp-stepper__indicator">
+        <!-- Icon for completed / error -->
+        <sp-icon
+          *ngIf="getStepIcon(getStepState(i)); else stepNumber"
+          [name]="getStepIcon(getStepState(i))!"
+          [size]="20"
+          color="currentColor"
+        ></sp-icon>
+        <!-- Number for active / pending -->
+        <ng-template #stepNumber>
+          <span class="sp-stepper__number">{{ i + 1 }}</span>
+        </ng-template>
+      </div>
+      <!-- Connector line (not shown after last step) -->
+      <div *ngIf="!isLast(i)" class="sp-stepper__connector"></div>
+    </div>
+
+    <!-- Step content -->
+    <div class="sp-stepper__content">
+      <span class="sp-stepper__label">{{ step.label }}</span>
+      <span *ngIf="step.description" class="sp-stepper__description">{{ step.description }}</span>
+    </div>
+  </li>
+</ol>

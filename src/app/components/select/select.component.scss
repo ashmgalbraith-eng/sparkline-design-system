@@ -1,0 +1,187 @@
+// ─── Sparkline Select ─────────────────────────────────────────────────
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  position: relative;
+  font-family: var(--type-font-family-base);
+}
+
+// ─── Label ───────────────────────────────────────────────────────────
+
+.sp-select__label {
+  font-size: var(--type-body-2-size);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+// ─── Trigger ─────────────────────────────────────────────────────────
+
+.sp-select__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-height: 44px;
+  padding: 10px var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-subtle);
+  background-color: var(--color-surface-default);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  flex-wrap: wrap;
+
+  &--focus {
+    border-color: var(--color-border-default);
+    box-shadow: 0 0 0 3px var(--color-surface-brand-subtle);
+  }
+
+  &--error {
+    border-color: var(--color-border-error);
+    box-shadow: 0 0 0 3px rgba(234, 6, 6, 0.12);
+  }
+
+  &--disabled {
+    border-color: var(--color-border-disabled);
+    background-color: var(--color-surface-subtle);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// ─── Value / placeholder ─────────────────────────────────────────────
+
+.sp-select__value {
+  flex: 1;
+  font-size: var(--type-body-1-size);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &--placeholder {
+    color: var(--color-text-secondary);
+  }
+}
+
+// ─── Multi chips ─────────────────────────────────────────────────────
+
+.sp-select__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+}
+
+.sp-select__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 6px 0 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-brand-subtle);
+  color: var(--color-text-brand);
+  font-size: var(--type-caption-size);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sp-select__chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  line-height: 1;
+
+  &:hover { opacity: 0.7; }
+}
+
+// ─── Chevron ─────────────────────────────────────────────────────────
+
+.sp-select__chevron {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  transition: transform 0.2s ease;
+  margin-left: auto;
+
+  &--open {
+    color: var(--color-text-brand);
+  }
+}
+
+// ─── Dropdown panel ──────────────────────────────────────────────────
+
+.sp-select__panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: var(--color-surface-default);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+// ─── Option ──────────────────────────────────────────────────────────
+
+.sp-select__option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+  padding: 10px var(--spacing-sm);
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-body-1-size);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+
+  &:hover {
+    background-color: var(--color-surface-subtle);
+  }
+
+  &--selected {
+    color: var(--color-text-brand);
+    font-weight: 500;
+    background-color: var(--color-surface-brand-subtle);
+
+    &:hover {
+      background-color: var(--color-surface-brand-subtle);
+    }
+  }
+
+  &--disabled {
+    color: var(--color-text-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.sp-select__option-check {
+  flex-shrink: 0;
+  color: var(--color-text-brand);
+}
+
+// ─── Helper text ─────────────────────────────────────────────────────
+
+.sp-select__helper {
+  font-size: var(--type-caption-size);
+  color: var(--color-text-secondary);
+
+  &--error {
+    color: var(--color-text-error);
+  }
+}

@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Button/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+The button host element uses `role="button"` and manages its own focus and disabled state:
+
+- `tabindex="0"` when enabled; `tabindex="-1"` when `state` is `'disabled'`.
+- `aria-disabled="true"` is applied when disabled — the element remains in the DOM and is discoverable by screen readers, but click events are suppressed.
+
+When `showText` is `false` (icon-only), the visible label is hidden. Add an `aria-label` attribute to the host to provide a text alternative for assistive technology, e.g. `<sp-button [showText]="false" aria-label="Search" ...>`.
+
+## Keyboard navigation
+
+| Key | Behaviour |
+|-----|-----------|
+| `Tab` | Moves focus to the button (skipped when disabled). |
+| `Enter` / `Space` | Activates the button and emits `buttonClick`. |
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.4.3 Contrast | AA | All button types meet minimum text contrast in both light and dark themes. |
+| 2.1.1 Keyboard | A | Fully operable via keyboard. |
+| 2.4.7 Focus Visible | AA | A visible focus ring is shown on keyboard focus. |
+| 4.1.2 Name, Role, Value | AA | `role="button"` and `aria-disabled` are set; provide `aria-label` for icon-only usage. |

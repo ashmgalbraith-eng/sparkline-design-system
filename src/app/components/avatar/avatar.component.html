@@ -1,6 +1,6 @@
 <div class="sp-avatar" [ngClass]="['sp-avatar--' + size, 'sp-avatar--' + type]">
   <!-- Text initials -->
-  <span *ngIf="type === 'text'" class="sp-avatar__initials">{{ initials }}</span>
+  <span *ngIf="type === 'text'" class="sp-avatar__initials">{{ displayInitials }}</span>
 
   <!-- Image -->
   <img
@@ -19,11 +19,13 @@
     color="currentColor"
   ></sp-icon>
 
-  <!-- Status indicator -->
-  <span *ngIf="showStatus" class="sp-avatar__status"></span>
+  <!-- Status dot (dot Badge variant) -->
+  <span *ngIf="showStatus" class="sp-avatar__status-anchor">
+    <sp-badge type="dot" [status]="statusColor"></sp-badge>
+  </span>
 
-  <!-- Notification badge -->
-  <span *ngIf="showNotification" class="sp-avatar__notification">
-    {{ notificationCount }}
+  <!-- Numeric notification (numeric Badge variant, left-locked, grows right) -->
+  <span *ngIf="showNotification" class="sp-avatar__notification-anchor">
+    <sp-badge type="numeric" status="notification" [label]="displayNotificationCount"></sp-badge>
   </span>
 </div>

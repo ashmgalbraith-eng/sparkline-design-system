@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Stepper/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Stepper communicates multi-step progress to all users. Use the following ARIA to make state available to assistive technology:
+
+- Wrap the stepper in a `<nav aria-label="Progress">` or a `<ol>` / `<ul>` so screen readers understand it as an ordered list of steps.
+- Each step item should carry `aria-current="step"` when it is the active step, so screen readers announce it as the current position.
+- Completed steps can be indicated with a visually-hidden "Completed" text or an `aria-label` on the step element (e.g. `aria-label="Account – Completed"`).
+- Error steps should include visible error text and can use `aria-invalid` or an `aria-description` with the error detail.
+
+## Keyboard navigation
+
+Stepper is a display-only progress indicator and is not interactive by default. If step items are made clickable (for navigating back to a previous step), ensure each step is a `<button>` or `<a>` that:
+
+- Is reachable via `Tab`.
+- Responds to `Enter` / `Space` to navigate.
+- Has a descriptive `aria-label` that includes the step name and state.
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.3.1 Info and Relationships | A | Use semantic list markup or `aria-label` to convey step order and current position. |
+| 1.3.3 Sensory Characteristics | AA | Completion is indicated by both a check icon and a colour change — do not rely on colour alone; include text or `aria-label`. |
+| 1.4.1 Use of Colour | A | Error state uses an icon in addition to colour; completed state uses a check icon. |
+| 1.4.3 Contrast | AA | Step labels and indicators meet minimum contrast in all states. |
+| 4.1.2 Name, Role, Value | AA | Add `aria-current="step"` to the active step; label completed and error steps explicitly. |

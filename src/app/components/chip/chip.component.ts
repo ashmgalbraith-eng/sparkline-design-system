@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 
 export type ChipType = 'clearable' | 'plain';
-export type ChipStyle = 'outlined' | 'filled';
 export type ChipState = 'default' | 'hover' | 'pressed' | 'focus' | 'disabled';
 
 @Component({
@@ -27,10 +26,11 @@ export type ChipState = 'default' | 'hover' | 'pressed' | 'focus' | 'disabled';
 export class ChipComponent {
   @Input() label = 'Chip';
   @Input() type: ChipType = 'plain';
-  @Input() style: ChipStyle = 'outlined';
   @Input() state: ChipState = 'default';
   @Input() showLeftIcon = false;
   @Input() showRightIcon = false;
+  @Input() leftIconName = 'check-circle-outline';
+  @Input() rightIconName = 'menu-down-outline';
 
   @Output() removed = new EventEmitter<void>();
 
@@ -40,7 +40,6 @@ export class ChipComponent {
     return [
       'sp-chip',
       `sp-chip--${this.type}`,
-      `sp-chip--${this.style}`,
       `sp-chip--${this.activeState}`,
     ].join(' ');
   }

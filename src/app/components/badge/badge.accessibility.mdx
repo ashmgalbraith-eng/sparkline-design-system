@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Badge/Accessibility" />
+
+# Accessibility
+
+## Role and ARIA
+
+Badge is a visual indicator component and carries no semantic role of its own. Its meaning must be conveyed through the surrounding context:
+
+- **Numeric badge** — add `aria-label` to the associated control (e.g. `aria-label="Notifications, 9 unread"`) so the count is announced by screen readers without relying on the visible badge alone.
+- **Dot badge** — use an `aria-label` or visually-hidden text on the parent element to communicate the status (e.g. `aria-label="Online"`).
+
+Never rely solely on colour to convey meaning. Pair colour with a label or supplementary text.
+
+## Keyboard navigation
+
+Badge is non-interactive and not focusable. It does not respond to keyboard events.
+
+## WCAG compliance
+
+| Criterion | Level | Notes |
+|-----------|-------|-------|
+| 1.3.3 Sensory Characteristics | AA | Status must not be conveyed by colour alone — supplement with text or `aria-label`. |
+| 1.4.1 Use of Colour | A | Dot badges rely on colour; ensure accompanying text communicates the state. |
+| 1.4.3 Contrast | AA | Badge label text on brand/status backgrounds meets the 4.5:1 minimum ratio. |
+| 4.1.2 Name, Role, Value | AA | Expose the badge value via `aria-label` on the parent interactive element. |

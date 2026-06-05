@@ -1,0 +1,265 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap);
+@charset "UTF-8";
+/* Global styles for Sparkline Design System */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PRIMITIVE TOKENS — never change between themes
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* ── Primary ── */
+  --primary-10: #F1ECFE;
+  --primary-20: #E4D8FE;
+  --primary-30: #C9B2FD;
+  --primary-40: #A078FB;
+  --primary-50: #783EF9;
+  --primary-60: #2C00AC;
+  --primary-70: #00007A;
+  --primary-80: #000060;
+  --primary-90: #000047;
+  /* ── Secondary ── */
+  --secondary-10: #FBE5F6;
+  --secondary-20: #F8CCEC;
+  --secondary-30: #F4B2E3;
+  --secondary-40: #ED80D0;
+  --secondary-50: #DB00A1;
+  --secondary-60: #8E0055;
+  --secondary-70: #75003B;
+  --secondary-80: #5C0022;
+  --secondary-90: #420008;
+  /* ── Neutral ── */
+  --neutral-10: #FFFFFF;
+  --neutral-20: #F1F1F1;
+  --neutral-30: #D6D6D6;
+  --neutral-40: #BABABA;
+  --neutral-50: #757575;
+  --neutral-60: #626060;
+  --neutral-70: #3D3D3D;
+  --neutral-80: #303030;
+  --neutral-90: #000000;
+  /* ── Alert ── */
+  --alert-info: #006ADB;
+  --alert-success: #008A22;
+  --alert-warning: #AC6502;
+  --alert-error: #EA0606;
+  /* ── Spacing ── */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  /* ── Border Radius ── */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 999px;
+  /* ── Shadows ── */
+  --shadow-button: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  /* ── Typography — base ── */
+  --type-font-family-base: 'Roboto', sans-serif;
+  /* ── Typography — static tokens ── */
+  --type-headline-4-size: 20px;
+  --type-headline-4-weight: 700;
+  --type-headline-4-line: 100%;
+  --type-headline-4-tracking: 0;
+  --type-subtitle-1-size: 18px;
+  --type-subtitle-1-weight: 700;
+  --type-subtitle-1-line: 100%;
+  --type-subtitle-1-tracking: 0;
+  --type-label-size: 16px;
+  --type-label-weight: 700;
+  --type-label-line: 100%;
+  --type-label-tracking: 0;
+  --type-body-1-size: 16px;
+  --type-body-1-weight: 400;
+  --type-body-1-line: 24px;
+  --type-body-1-tracking: 0;
+  --type-body-2-size: 14px;
+  --type-body-2-weight: 400;
+  --type-body-2-line: 20px;
+  --type-body-2-tracking: 0;
+  --type-caption-size: 12px;
+  --type-caption-weight: 400;
+  --type-caption-line: 100%;
+  --type-caption-tracking: 0;
+  --type-button-size: 16px;
+  --type-button-weight: 700;
+  --type-button-line: 100%;
+  --type-button-tracking: 0;
+  /* ── Typography — responsive tokens (mobile-first: sm defaults) ── */
+  --type-display-size: 40px;
+  --type-display-weight: 800;
+  --type-display-line: 115%;
+  --type-display-tracking: 0;
+  --type-headline-1-size: 32px;
+  --type-headline-1-weight: 700;
+  --type-headline-1-line: 120%;
+  --type-headline-1-tracking: -0.5px;
+  --type-headline-2-size: 24px;
+  --type-headline-2-weight: 700;
+  --type-headline-2-line: 125%;
+  --type-headline-2-tracking: 0;
+  --type-headline-3-size: 20px;
+  --type-headline-3-weight: 700;
+  --type-headline-3-line: 100%;
+  --type-headline-3-tracking: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SEMANTIC TOKENS — LIGHT THEME
+   Scoped to [data-theme="light"] so Storybook's withThemeByDataAttribute
+   decorator can activate them on its preview wrapper element (not :root).
+   ───────────────────────────────────────────────────────────────────────────── */
+[data-theme=light] {
+  /* ── Border ── */
+  --color-border-default: var(--primary-50);
+  --color-border-subtle: var(--neutral-30);
+  --color-border-strong: var(--neutral-80);
+  --color-border-disabled: var(--neutral-40);
+  /* ── Feedback — text ── */
+  --color-text-error: var(--alert-error);
+  --color-text-success: var(--alert-success);
+  --color-text-warning: var(--alert-warning);
+  --color-text-info: var(--alert-info);
+  /* ── Feedback — surfaces ── */
+  --color-surface-error: var(--alert-error);
+  --color-surface-success: var(--alert-success);
+  --color-surface-warning: var(--alert-warning);
+  --color-surface-info: var(--alert-info);
+  /* ── Feedback — borders ── */
+  --color-border-error: var(--alert-error);
+  --color-border-success: var(--alert-success);
+  --color-border-warning: var(--alert-warning);
+  --color-border-info: var(--alert-info);
+  /* ── Surface ── */
+  --color-surface-default: var(--neutral-10);
+  --color-surface-subtle: var(--neutral-20);
+  --color-surface-overlay: var(--neutral-40);
+  --color-surface-inverse: var(--neutral-80);
+  --color-surface-disabled: var(--neutral-40);
+  --color-surface-subtle-disabled: var(--neutral-10);
+  --color-surface-brand: var(--primary-50);
+  --color-surface-brand-subtle: var(--primary-20);
+  /* ── Text ── */
+  --color-text-primary: var(--neutral-80);
+  --color-text-secondary: var(--neutral-50);
+  --color-text-inverse: var(--neutral-10);
+  --color-text-disabled: var(--neutral-40);
+  --color-text-on-disabled: var(--neutral-20);
+  --color-text-brand: var(--primary-50);
+  /* ── Control ── */
+  --color-control-track: var(--neutral-40);
+  --color-control-track-active: var(--primary-50);
+  --color-control-track-inactive: var(--primary-20);
+  --color-control-track-disabled: var(--neutral-20);
+  --color-control-thumb-inverse: var(--neutral-10);
+  --color-control-thumb-brand: var(--primary-50);
+  --color-control-thumb-disabled: var(--neutral-30);
+  /* ── Action ── */
+  --color-action-brand-border: var(--primary-60);
+  --color-action-brand-text: var(--primary-60);
+  --color-action-subtle-hover-bg: var(--neutral-20);
+  --color-action-strong-hover-bg: var(--neutral-30);
+  --color-action-strong-text: var(--neutral-80);
+  --color-action-strong-border: var(--neutral-80);
+  --color-action-subtle-focus: var(--neutral-20);
+  --color-surface-hover-bg: var(--primary-20);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SEMANTIC TOKENS — DARK THEME
+   ───────────────────────────────────────────────────────────────────────────── */
+[data-theme=dark] {
+  /* ── Border ── */
+  --color-border-default: var(--primary-40);
+  --color-border-subtle: var(--neutral-50);
+  --color-border-strong: var(--neutral-20);
+  --color-border-disabled: var(--neutral-60);
+  /* ── Feedback — text ── */
+  --color-text-error: #FF6B6B;
+  --color-text-success: #4ADE80;
+  --color-text-warning: #FBB848;
+  --color-text-info: #60A5FA;
+  /* ── Feedback — surfaces ── */
+  --color-surface-error: #FF6B6B;
+  --color-surface-success: #4ADE80;
+  --color-surface-warning: #FBB848;
+  --color-surface-info: #60A5FA;
+  /* ── Feedback — borders ── */
+  --color-border-error: #FF6B6B;
+  --color-border-success: #4ADE80;
+  --color-border-warning: #FBB848;
+  --color-border-info: #60A5FA;
+  /* ── Surface ── */
+  --color-surface-default: var(--neutral-90);
+  --color-surface-subtle: var(--neutral-80);
+  --color-surface-overlay: var(--neutral-70);
+  --color-surface-inverse: var(--neutral-20);
+  --color-surface-disabled: var(--neutral-70);
+  --color-surface-subtle-disabled: var(--neutral-80);
+  --color-surface-brand: var(--primary-40);
+  --color-surface-brand-subtle: var(--primary-80);
+  /* ── Text ── */
+  --color-text-primary: var(--neutral-10);
+  --color-text-secondary: var(--neutral-40);
+  --color-text-inverse: var(--neutral-90);
+  --color-text-disabled: var(--neutral-60);
+  --color-text-on-disabled: var(--neutral-70);
+  --color-text-brand: var(--primary-30);
+  /* ── Control ── */
+  --color-control-track: var(--neutral-60);
+  --color-control-track-active: var(--primary-40);
+  --color-control-track-inactive: var(--primary-80);
+  --color-control-track-disabled: var(--neutral-70);
+  --color-control-thumb-inverse: var(--neutral-90);
+  --color-control-thumb-brand: var(--primary-40);
+  --color-control-thumb-disabled: var(--neutral-70);
+  /* ── Action ── */
+  --color-action-brand-border: var(--primary-40);
+  --color-action-brand-text: var(--primary-30);
+  --color-action-subtle-hover-bg: var(--neutral-70);
+  --color-action-strong-hover-bg: var(--neutral-60);
+  --color-action-strong-text: var(--neutral-10);
+  --color-action-strong-border: var(--neutral-20);
+  --color-action-subtle-focus: var(--neutral-70);
+  --color-surface-hover-bg: var(--primary-80);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text-primary);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/*# sourceMappingURL=main.dd2f27956855a661fc60.css.map*/

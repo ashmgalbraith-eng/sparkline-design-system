@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as InputStories from './input.stories';
+
+<Meta title="Components/Input/Overview" />
+
+# Input
+
+Text inputs let users enter and edit freeform text. They support labels, helper text, validation states, and leading or trailing icons.
+
+<Canvas of={InputStories.Playground} />
+
+## Usage guidelines
+
+Always pair an input with a visible label. Use helper text to set expectations before submission and error text to explain what went wrong. The optional label flag communicates that a field is not required.

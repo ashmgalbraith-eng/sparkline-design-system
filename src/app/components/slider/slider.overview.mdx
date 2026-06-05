@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as SliderStories from './slider.stories';
+
+<Meta title="Components/Slider/Overview" />
+
+# Slider
+
+Sliders let users select a numeric value within a defined range by dragging a thumb along a track. An optional value label displays the current selection.
+
+<Canvas of={SliderStories.Playground} />
+
+## Usage guidelines
+
+Use sliders for continuous ranges where the exact value is less important than the relative position (e.g. volume, brightness). For precise numeric input, prefer a number input field. Set `step` to constrain selection to discrete intervals.

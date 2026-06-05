@@ -5,41 +5,39 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  background-color: var(--primary-60);
-  color: var(--neutral-10);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-overlay);
+  color: var(--color-text-primary);
   overflow: visible;
   flex-shrink: 0;
 }
 
 // ─── Sizes ──────────────────────────────────────────────────────────
 
+.sp-avatar--large {
+  width: 32px;
+  height: 32px;
+}
+
 .sp-avatar--medium {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
 }
 
 .sp-avatar--small {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
 }
 
 // ─── Initials ───────────────────────────────────────────────────────
 
 .sp-avatar__initials {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-caption-size);
+  font-weight: 400;
   text-align: center;
   text-transform: uppercase;
   user-select: none;
-
-  .sp-avatar--medium & {
-    font-size: 16px;
-  }
-
-  .sp-avatar--small & {
-    font-size: 12px;
-  }
 }
 
 // ─── Image ──────────────────────────────────────────────────────────
@@ -47,7 +45,7 @@
 .sp-avatar__image {
   width: 100%;
   height: 100%;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   object-fit: cover;
 }
 
@@ -58,56 +56,68 @@
 // ─── Icon ───────────────────────────────────────────────────────────
 
 .sp-avatar__icon {
+  .sp-avatar--large & {
+    width: 16px;
+    height: 16px;
+  }
+
   .sp-avatar--medium & {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
 
   .sp-avatar--small & {
-    width: 18px;
-    height: 18px;
+    width: 12px;
+    height: 12px;
   }
 }
 
-// ─── Status indicator ───────────────────────────────────────────────
+// ─── Status anchor (dot Badge, bottom-right) ────────────────────────
 
-.sp-avatar__status {
+.sp-avatar__status-anchor {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  border-radius: 999px;
-  background-color: var(--alert-success, #22c55e);
-  border: 1px solid var(--neutral-10);
+  display: flex;
+
+  .sp-avatar--large & {
+    left: 25px;
+    top: 24px;
+  }
 
   .sp-avatar--medium & {
-    width: 10px;
-    height: 10px;
+    bottom: -2px;
+    right: -3px;
   }
 
   .sp-avatar--small & {
-    width: 8px;
-    height: 8px;
+    left: 13px;
+    top: 12px;
+  }
+
+  sp-badge {
+    outline: 2px solid var(--color-border-inverse);
+    border-radius: var(--radius-full);
   }
 }
 
-// ─── Notification badge ─────────────────────────────────────────────
+// ─── Notification anchor (numeric Badge, anchored right of center, grows right)
 
-.sp-avatar__notification {
+.sp-avatar__notification-anchor {
   position: absolute;
-  top: -8px;
-  right: -12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background-color: var(--primary-50);
-  border: 1px solid var(--neutral-10);
-  color: var(--neutral-10);
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: normal;
-  white-space: nowrap;
+  display: flex;
+  pointer-events: none;
+
+  .sp-avatar--large & {
+    left: 24px;
+    top: -7px;
+  }
+
+  .sp-avatar--medium & {
+    left: 16px;
+    top: -10px;
+  }
+
+  .sp-avatar--small & {
+    left: 8px;
+    top: -12px;
+  }
 }

@@ -1,0 +1,38 @@
+// ─── Sparkline Card ───────────────────────────────────────────────────
+
+:host {
+  display: block;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-surface-default);
+  overflow: hidden;
+  transition: box-shadow 0.15s ease;
+}
+
+// ─── Padding variants ────────────────────────────────────────────────
+
+:host(.sp-card--pad-none)  { padding: 0; }
+:host(.sp-card--pad-sm)    { padding: var(--spacing-sm); }
+:host(.sp-card--pad-md)    { padding: var(--spacing-md); }
+:host(.sp-card--pad-lg)    { padding: var(--spacing-lg); }
+
+// ─── Elevated ────────────────────────────────────────────────────────
+
+:host(.sp-card--elevated) {
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+
+// ─── Outlined ────────────────────────────────────────────────────────
+
+:host(.sp-card--outlined) {
+  box-shadow: none;
+  border: 1px solid var(--color-border-subtle);
+}
+
+// ─── Filled ──────────────────────────────────────────────────────────
+
+:host(.sp-card--filled) {
+  box-shadow: none;
+  border: none;
+  background-color: var(--color-surface-subtle);
+}

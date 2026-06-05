@@ -1,0 +1,134 @@
+// ─── Sparkline Radio ─────────────────────────────────────────────────
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-body-1-size);
+  font-weight: var(--type-body-1-weight);
+  line-height: var(--type-body-1-line);
+  color: var(--color-text-primary);
+}
+
+// ─── Touch target (40×40) ────────────────────────────────────────────
+
+.sp-radio__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+    pointer-events: none;
+  }
+}
+
+// ─── Radio circle (24×24) ────────────────────────────────────────────
+
+.sp-radio__circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-subtle);
+  background-color: transparent;
+  transition: border-color 0.15s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+// ─── Inner dot (8px) ─────────────────────────────────────────────────
+
+.sp-radio__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-surface-brand);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+// ─── Label ───────────────────────────────────────────────────────────
+
+.sp-radio__label {
+  color: var(--color-text-primary);
+}
+
+// ─── Checked ─────────────────────────────────────────────────────────
+
+:host(.sp-radio--checked) {
+  .sp-radio__circle {
+    border-color: var(--color-border-default);
+  }
+
+  .sp-radio__dot {
+    transform: scale(1);
+  }
+}
+
+// ─── Hover ───────────────────────────────────────────────────────────
+
+:host(.sp-radio--hover) {
+  .sp-radio__control::before {
+    background-color: var(--color-surface-hover-bg);
+  }
+}
+
+// ─── Focus ───────────────────────────────────────────────────────────
+
+:host(.sp-radio--focus) {
+  .sp-radio__control::before {
+    background-color: var(--color-surface-brand-subtle);
+  }
+
+  .sp-radio__circle {
+    outline: 2px solid var(--primary-30);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Pressed ─────────────────────────────────────────────────────────
+
+:host(.sp-radio--pressed) {
+  .sp-radio__control::before {
+    background-color: var(--color-surface-brand-subtle);
+  }
+}
+
+// ─── Disabled ────────────────────────────────────────────────────────
+
+:host(.sp-radio--disabled) {
+  cursor: not-allowed;
+  pointer-events: none;
+
+  .sp-radio__circle {
+    border-color: var(--color-border-disabled);
+  }
+
+  .sp-radio__label {
+    color: var(--color-text-disabled);
+  }
+}
+
+:host(.sp-radio--disabled.sp-radio--checked) {
+  .sp-radio__dot {
+    background-color: var(--color-surface-disabled);
+    transform: scale(1);
+  }
+}

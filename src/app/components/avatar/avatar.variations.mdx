@@ -1,0 +1,28 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './avatar.all-stories.stories';
+
+<Meta title="Components/Avatar/Variations" />
+
+# Variations
+
+- [Sizes](#sizes)
+- [Types](#types)
+- [With badge](#with-badge)
+
+## Sizes
+
+Three sizes are available — small, medium (default), and large — to fit different layout densities.
+
+<Canvas of={AvatarStories.Sizes} />
+
+## Types
+
+Avatars can show initials (text), a generic person icon, or a user-provided image.
+
+<Canvas of={AvatarStories.Types} />
+
+## With badge
+
+Notification counts and status indicators can be layered on any avatar to communicate activity or presence.
+
+<Canvas of={AvatarStories.WithBadge} />

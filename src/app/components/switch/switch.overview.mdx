@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as SwitchStories from './switch.stories';
+
+<Meta title="Components/Switch/Overview" />
+
+# Switch
+
+Switches toggle a single binary setting on or off. Changes take effect immediately — no submit action is needed.
+
+<Canvas of={SwitchStories.Playground} />
+
+## Usage guidelines
+
+Use switches for settings that apply instantly (e.g. enabling notifications). If the change requires a save action, use a checkbox instead. Always label what the switch controls.

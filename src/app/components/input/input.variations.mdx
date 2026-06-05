@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as InputStories from './input.all-stories.stories';
+
+<Meta title="Components/Input/Variations" />
+
+# Variations
+
+- [States](#states)
+- [With icons](#with-icons)
+
+## States
+
+Inputs support five states: default, focus, error, success, and disabled. Error and success states surface contextual feedback text below the field.
+
+<Canvas of={InputStories.States} />
+
+## With icons
+
+Icons can be placed at the leading or trailing position inside the field. Use them to reinforce the input's purpose (e.g. a search icon) or provide inline actions.
+
+<Canvas of={InputStories.WithIcons} />

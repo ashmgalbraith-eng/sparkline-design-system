@@ -3,18 +3,29 @@
 :host {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  font-family: 'Roboto', sans-serif;
-  width: 280px;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--type-font-family-base);
+  width: 213px;
 }
 
 // ─── Label ──────────────────────────────────────────────────────────
 
 .sp-input__label {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary-60);
-  line-height: normal;
+  font-size: var(--type-body-1-size);
+  font-weight: var(--type-body-1-weight);
+  font-style: normal;
+  line-height: var(--type-body-1-line);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sp-input__label-optional {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-weight: 400;
 }
 
 // ─── Field container ────────────────────────────────────────────────
@@ -23,33 +34,34 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 40px;
-  padding: 0 12px;
-  border-radius: var(--radius-4);
-  border: 1px solid var(--neutral-40);
-  background-color: var(--neutral-10);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  height: 48px;
+  padding: 12px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-surface-default);
+  box-sizing: border-box;
+  align-self: stretch;
+  transition: border-color 0.15s ease;
 
-  // Default
   &.sp-input--default {
-    border-color: var(--neutral-40);
+    border-color: var(--color-border-strong);
   }
 
-  // Focus
   &.sp-input--focus {
-    border-color: var(--primary-50);
-    box-shadow: 0 0 0 2px var(--primary-30);
+    border-color: var(--color-action-brand-border);
   }
 
-  // Error
   &.sp-input--error {
-    border-color: var(--alert-error);
+    border-color: var(--color-border-error);
   }
 
-  // Disabled
+  &.sp-input--success {
+    border-color: var(--color-border-success);
+  }
+
   &.sp-input--disabled {
-    background-color: var(--neutral-20);
-    border-color: var(--neutral-40);
+    background-color: var(--color-surface-subtle-disabled);
+    border-color: var(--color-border-disabled);
     cursor: not-allowed;
   }
 }
@@ -58,22 +70,27 @@
 
 .sp-input__field {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--primary-60);
-  line-height: normal;
+  font-family: var(--type-font-family-base);
+  font-size: var(--type-body-1-size);
+  font-weight: var(--type-body-1-weight);
+  line-height: var(--type-body-1-line);
+  color: var(--color-text-primary);
 
   &::placeholder {
-    color: var(--neutral-40);
+    color: var(--color-text-secondary);
   }
 
   &:disabled {
-    color: var(--neutral-40);
+    color: var(--color-text-disabled);
     cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--color-text-disabled);
+    }
   }
 }
 
@@ -81,30 +98,39 @@
 
 .sp-input__icon {
   flex-shrink: 0;
-  color: var(--neutral-40);
+  color: var(--color-text-secondary);
+  transition: color 0.15s ease;
 
   .sp-input--focus & {
-    color: var(--primary-50);
+    color: var(--color-action-brand-border);
   }
 
-  &.sp-input__icon--error {
-    color: var(--alert-error);
+  .sp-input--error & {
+    color: var(--color-text-error);
+  }
+
+  .sp-input--success & {
+    color: var(--color-text-success);
   }
 
   .sp-input--disabled & {
-    color: var(--neutral-40);
+    color: var(--color-text-disabled);
   }
 }
 
-// ─── Helper / Error text ────────────────────────────────────────────
+// ─── Helper / Error / Success text ──────────────────────────────────
 
 .sp-input__helper {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--neutral-40);
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  color: var(--color-text-secondary);
   line-height: normal;
 
   &.sp-input__helper--error {
-    color: var(--alert-error);
+    color: var(--color-text-error);
+  }
+
+  &.sp-input__helper--success {
+    color: var(--color-text-success);
   }
 }

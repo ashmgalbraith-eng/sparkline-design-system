@@ -1,0 +1,35 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './button.all-stories.stories';
+
+<Meta title="Components/Button/Variations" />
+
+# Variations
+
+- [Types](#types)
+- [Sizes](#sizes)
+- [States](#states)
+- [With icons](#with-icons)
+
+## Types
+
+Three variants establish visual hierarchy on a page. Use filled for the primary call to action, outlined for secondary actions, and text for tertiary or low-emphasis actions.
+
+<Canvas of={ButtonStories.Types} />
+
+## Sizes
+
+Two sizes are available. Use large (default) in most contexts. Small is suited for dense layouts or toolbars.
+
+<Canvas of={ButtonStories.Sizes} />
+
+## States
+
+Buttons respond to all standard interaction states. The disabled state prevents interaction and removes the element from focus order.
+
+<Canvas of={ButtonStories.States} />
+
+## With icons
+
+Icons can appear on either side of the label, or the button can be icon-only. Use icons to reinforce the action — not as decoration.
+
+<Canvas of={ButtonStories.WithIcons} />

@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ChipStories from './chip.all-stories.stories';
+
+<Meta title="Components/Chip/Variations" />
+
+# Variations
+
+- [Types](#types)
+- [States](#states)
+
+## Types
+
+Plain chips are non-removable labels. Clearable chips include a dismiss button. Both support optional leading and trailing icons.
+
+<Canvas of={ChipStories.Types} />
+
+## States
+
+Chips respond to hover, pressed, focus, and disabled states. Disabled chips are removed from the focus order.
+
+<Canvas of={ChipStories.States} />

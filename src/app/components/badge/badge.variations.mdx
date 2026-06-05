@@ -1,0 +1,21 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as BadgeStories from './badge.all-stories.stories';
+
+<Meta title="Components/Badge/Variations" />
+
+# Variations
+
+- [Types](#types)
+- [Status colors](#status-colors)
+
+## Types
+
+The numeric type displays a count label. The dot type shows only a filled circle — useful when presence matters more than quantity.
+
+<Canvas of={BadgeStories.Types} />
+
+## Status colors
+
+Five semantic colors map to different notification categories. Notification (brand purple) is the default; success, error, warning, and info follow the design system's feedback palette.
+
+<Canvas of={BadgeStories.StatusColors} />

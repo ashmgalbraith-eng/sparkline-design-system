@@ -1,0 +1,183 @@
+// ─── Sparkline Stepper ────────────────────────────────────────────────
+
+.sp-stepper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+// ─── Orientations ────────────────────────────────────────────────────
+
+.sp-stepper--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+
+  .sp-stepper__step {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sp-stepper__head {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sp-stepper__connector {
+    flex: 1;
+    height: 2px;
+    margin: 0 var(--spacing-xs);
+  }
+
+  .sp-stepper__content {
+    align-items: center;
+    text-align: center;
+    margin-top: var(--spacing-xs);
+    padding: 0 var(--spacing-xs);
+  }
+}
+
+.sp-stepper--vertical {
+  flex-direction: column;
+
+  .sp-stepper__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .sp-stepper__head {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sp-stepper__connector {
+    width: 2px;
+    flex: 1;
+    min-height: 32px;
+    margin: var(--spacing-xs) 0;
+  }
+
+  .sp-stepper__content {
+    padding-bottom: var(--spacing-lg);
+    padding-top: 2px;
+  }
+}
+
+// ─── Step ─────────────────────────────────────────────────────────────
+
+.sp-stepper__step {
+  display: flex;
+  font-family: var(--type-font-family-base);
+}
+
+// ─── Head (indicator + connector) ────────────────────────────────────
+
+.sp-stepper__head {
+  display: flex;
+  flex-shrink: 0;
+}
+
+// ─── Indicator circle ────────────────────────────────────────────────
+
+.sp-stepper__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border-subtle);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.sp-stepper__number {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+// ─── Connector line ───────────────────────────────────────────────────
+
+.sp-stepper__connector {
+  background-color: var(--color-border-subtle);
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+// ─── Content ──────────────────────────────────────────────────────────
+
+.sp-stepper__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sp-stepper__label {
+  font-size: var(--type-body-2-size);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.sp-stepper__description {
+  font-size: var(--type-caption-size);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+// ─── States ───────────────────────────────────────────────────────────
+
+.sp-stepper__step--active {
+  .sp-stepper__indicator {
+    border-color: var(--color-surface-brand);
+    background-color: var(--color-surface-brand);
+    color: var(--color-text-inverse);
+  }
+
+  .sp-stepper__label {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+}
+
+.sp-stepper__step--completed {
+  .sp-stepper__indicator {
+    border-color: var(--color-surface-brand);
+    background-color: transparent;
+    color: var(--color-surface-brand);
+  }
+
+  .sp-stepper__connector {
+    background-color: var(--color-surface-brand);
+  }
+
+  .sp-stepper__label {
+    color: var(--color-text-primary);
+  }
+}
+
+.sp-stepper__step--error {
+  .sp-stepper__indicator {
+    border-color: var(--color-border-error);
+    background-color: transparent;
+    color: var(--color-surface-error);
+  }
+
+  .sp-stepper__label {
+    color: var(--color-text-error);
+  }
+}
+
+.sp-stepper__step--pending {
+  .sp-stepper__indicator {
+    border-color: var(--color-border-subtle);
+    color: var(--color-text-secondary);
+  }
+}

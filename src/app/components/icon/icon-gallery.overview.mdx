@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as IconGalleryStories from './icon-gallery.stories';
+
+<Meta title="Foundations/Icon Gallery/Overview" />
+
+# Icon Gallery
+
+The Sparkline icon library is a curated set of SVG icons from the Material Design Icons collection, sized from 16px to 64px and fully tokenised for color.
+
+<Canvas of={IconGalleryStories.AllIcons} />
+
+## Usage guidelines
+
+Use the `sp-icon` component with a `name` matching any key in the icon registry. Set `size` in pixels (16–64) and `color` using a design token CSS variable. Icons scale on the 8px grid; prefer 16px or 24px in most UI contexts.

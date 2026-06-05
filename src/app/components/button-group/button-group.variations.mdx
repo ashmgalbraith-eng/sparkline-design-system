@@ -1,0 +1,35 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ButtonGroupStories from './button-group.all-stories.stories';
+
+<Meta title="Components/ButtonGroup/Variations" />
+
+# Variations
+
+- [Sizes](#sizes)
+- [Icon variants](#icon-variants)
+- [Disabled](#disabled)
+- [Button counts](#button-counts)
+
+## Sizes
+
+Large (default) and small sizes match the Button component's scale tokens.
+
+<Canvas of={ButtonGroupStories.Sizes} />
+
+## Icon variants
+
+Buttons within the group can show label only, left icon + label, label + right icon, both icons, or icon only.
+
+<Canvas of={ButtonGroupStories.IconVariants} />
+
+## Disabled
+
+The entire group can be disabled, preventing all interaction.
+
+<Canvas of={ButtonGroupStories.Disabled} />
+
+## Button counts
+
+Groups support between 2 and 5 buttons. The active selection indicator spans the full height of the active item.
+
+<Canvas of={ButtonGroupStories.ButtonCounts} />

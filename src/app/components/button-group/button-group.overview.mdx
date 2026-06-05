@@ -1,0 +1,14 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as ButtonGroupStories from './button-group.stories';
+
+<Meta title="Components/ButtonGroup/Overview" />
+
+# Button Group
+
+Button groups present a set of segmented actions in a connected row, where exactly one option is active at a time. Use them for view toggles, filter selections, or segmented controls.
+
+<Canvas of={ButtonGroupStories.Playground} />
+
+## Usage guidelines
+
+Keep group labels short and parallel. The active item should reflect the current state, not a desired action. Limit groups to 2–5 buttons; more options are better served by a select or tab component.
