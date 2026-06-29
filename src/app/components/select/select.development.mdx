@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Select/Development" />
+
+<Pill />
+
+# Select
+
+Select implements its own open/close and outside-click handling via HostListener, and supports both single and multi-select modes through the same value and valueChange API.
+
+## Import
+
+<CodeBlock>{`import { SelectComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [SelectComponent],
+  template: '<sp-select label="Account type" [options]="accountTypes" [(value)]="selectedType"></sp-select>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'options', type: 'SelectOption[]', default: '[]', description: 'Array of { label, value, disabled? } objects.' },
+  { name: 'value', type: 'string | string[] | null', default: 'null', description: 'Selected value (single mode) or array of values (multiple mode).' },
+  { name: 'multiple', type: 'boolean', default: 'false', description: 'Enables multi-select mode; selected values render as removable chips in the trigger.' },
+  { name: 'placeholder', type: 'string', default: '\'Select an option\'', description: 'Placeholder shown when no value is selected.' },
+  { name: 'label', type: 'string', default: '\'\'', description: 'Visible label for the field.' },
+  { name: 'helperText', type: 'string', default: '\'\'', description: 'Helper text shown below the field.' },
+  { name: 'errorText', type: 'string', default: '\'\'', description: 'Error text shown below the field when state is \'error\'.' },
+  { name: 'state', type: '\'default\' | \'error\' | \'disabled\'', default: '\'default\'', description: 'Field validation/availability state.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'valueChange', payload: 'string | string[]', description: 'Emitted with the new value (or array of values in multi-select mode) on selection change.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+]} />

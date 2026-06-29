@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, KeyTable, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Button/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -15,16 +18,16 @@ When `showText` is `false` (icon-only), the visible label is hidden. Add an `ari
 
 ## Keyboard navigation
 
-| Key | Behaviour |
-|-----|-----------|
-| `Tab` | Moves focus to the button (skipped when disabled). |
-| `Enter` / `Space` | Activates the button and emits `buttonClick`. |
+<KeyTable rows={[
+  { key: 'Tab', behavior: 'Moves focus to the button (skipped when disabled).' },
+  { key: 'Enter / Space', behavior: 'Activates the button and emits buttonClick.' },
+]} />
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.4.3 Contrast | AA | All button types meet minimum text contrast in both light and dark themes. |
-| 2.1.1 Keyboard | A | Fully operable via keyboard. |
-| 2.4.7 Focus Visible | AA | A visible focus ring is shown on keyboard focus. |
-| 4.1.2 Name, Role, Value | AA | `role="button"` and `aria-disabled` are set; provide `aria-label` for icon-only usage. |
+<WCAGTable rows={[
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'All button types meet minimum text contrast in both light and dark themes.' },
+  { criterion: '2.1.1 Keyboard', level: 'A', notes: 'Fully operable via keyboard.' },
+  { criterion: '2.4.7 Focus Visible', level: 'AA', notes: 'A visible focus ring is shown on keyboard focus.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'role="button" and aria-disabled are set; provide aria-label for icon-only usage.' },
+]} />

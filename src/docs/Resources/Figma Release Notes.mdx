@@ -1,0 +1,102 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Resources/Figma Release Notes" />
+
+export const VersionBadge = ({ label, color, bg }) => (
+  <span style={{
+    display: 'inline-block',
+    fontSize: '11px',
+    fontWeight: 700,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+    color,
+    background: bg,
+    padding: '3px 9px',
+    borderRadius: '999px',
+  }}>{label}</span>
+);
+
+export const PlatformTag = ({ label }) => (
+  <span style={{
+    display: 'inline-block',
+    fontSize: '10px',
+    fontWeight: 700,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+    color: '#757575',
+    border: '1px solid #D6D6D6',
+    padding: '2px 8px',
+    borderRadius: '999px',
+    marginRight: '6px',
+  }}>{label}</span>
+);
+
+export const ReleaseEntry = ({ version, date, type, platforms, children }) => {
+  const types = {
+    Patch: { color: '#008A22', bg: '#E3F6E8' },
+    Minor: { color: '#AC6502', bg: '#FCEFDC' },
+    Major: { color: '#EA0606', bg: '#FDE5E5' },
+  };
+  const t = types[type];
+  return (
+    <div style={{ border: '1px solid #D6D6D6', borderRadius: '8px', padding: '20px 22px', marginBottom: '14px', background: '#fff' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: 700, color: '#000' }}>{version}</span>
+        <VersionBadge label={type} color={t.color} bg={t.bg} />
+        <span style={{ fontSize: '12px', color: '#9b9b9b' }}>{date}</span>
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        {platforms.map((p) => <PlatformTag key={p} label={p} />)}
+      </div>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        {children}
+      </ul>
+    </div>
+  );
+};
+
+export const Item = ({ children }) => (
+  <li style={{ fontSize: '14px', color: '#3D3D3D', lineHeight: 1.5, paddingLeft: '14px', position: 'relative' }}>
+    <span style={{ position: 'absolute', left: 0, top: '8px', width: '5px', height: '5px', borderRadius: '50%', background: '#783EF9' }} />
+    {children}
+  </li>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Resources</span>
+</div>
+
+# Figma Release Notes
+
+A history of changes published to the Sparkline Figma libraries. See [Versioning & Releases](?path=/docs/design-system-governance-versioning-releases--docs) for what Patch, Minor, and Major mean.
+
+<ReleaseEntry version="v4.2.0" date="Jun 4, 2026" type="Minor" platforms={['Foundations', 'Web']}>
+  <Item>Published Switch, Select, Radio, Stepper, and Slider as Figma components with full variant properties</Item>
+  <Item>Added Card component to the foundations library with elevation and padding variants</Item>
+  <Item>Synced new component frames with the Storybook MDX docs for design-to-code handoff</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.1.0" date="Feb 23, 2026" type="Minor" platforms={['Foundations']}>
+  <Item>Published the full 62-icon set as a Figma icon library with consistent 24x24 frame sizing</Item>
+  <Item>Added Switch component variants (on/off, disabled, with label)</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.0.1" date="Feb 12, 2026" type="Patch" platforms={['Foundations']}>
+  <Item>Corrected Input component error-state border color to match updated alert token</Item>
+  <Item>Fixed inconsistent corner radius on Chip variants</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.0.0" date="Feb 12, 2026" type="Major" platforms={['Foundations']}>
+  <Item>Published Chip component with clearable and plain types, outlined and filled styles</Item>
+  <Item>Published Input component with label, helper/error text, and icon slot variants</Item>
+  <Item>Renamed several primitive color tokens to align with the new semantic token structure; existing frames using old token names require manual remapping</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v2.0.0" date="Feb 11, 2026" type="Major" platforms={['Foundations']}>
+  <Item>Published Avatar and Badge components, migrated from the legacy frame-based library</Item>
+  <Item>Restructured the library into Foundations, Components, and Resources sections to match the new governance model</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v1.0.0" date="Feb 3, 2026" type="Major" platforms={['Foundations']}>
+  <Item>Initial publish of the Sparkline Figma library with Button component and primitive/semantic color tokens</Item>
+</ReleaseEntry>

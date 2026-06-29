@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/ButtonGroup/Development" />
+
+<Pill />
+
+# ButtonGroup
+
+ButtonGroup renders a segmented row of buttons from the items array and tracks the active selection internally via activeIndex.
+
+## Import
+
+<CodeBlock>{`import { ButtonGroupComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [ButtonGroupComponent],
+  template: '<sp-button-group [items]="viewOptions" [activeIndex]="activeView" (selectionChange)="activeView = $event"></sp-button-group>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'items', type: 'ButtonGroupItem[]', default: '2 placeholder items', description: 'Array of { label, leftIconName, rightIconName } objects, one per segment.' },
+  { name: 'size', type: '\'large\' | \'small\'', default: '\'large\'', description: 'Matches Button\'s size scale.' },
+  { name: 'showLeftIcon', type: 'boolean', default: 'false', description: 'Shows the left icon on every item.' },
+  { name: 'showRightIcon', type: 'boolean', default: 'false', description: 'Shows the right icon on every item.' },
+  { name: 'showLabel', type: 'boolean', default: 'true', description: 'Set to false for icon-only segments.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables the entire group.' },
+  { name: 'activeIndex', type: 'number', default: '0', description: 'Index of the currently selected segment.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'selectionChange', payload: 'number', description: 'Emitted with the new active index when a segment is selected.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+]} />

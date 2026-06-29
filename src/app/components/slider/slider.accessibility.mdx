@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, KeyTable, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Slider/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -13,24 +16,22 @@ Slider renders a native `<input type="range">` element, which carries `role="sli
 
 ## Keyboard navigation
 
-Native range input keyboard behaviour:
-
-| Key | Behaviour |
-|-----|-----------|
-| `Tab` | Moves focus to the slider (skipped when `disabled`). |
-| `Arrow Right` / `Arrow Up` | Increases value by one `step`. |
-| `Arrow Left` / `Arrow Down` | Decreases value by one `step`. |
-| `Page Up` | Increases value by a larger increment (browser default, typically 10% of range). |
-| `Page Down` | Decreases value by a larger increment. |
-| `Home` | Sets value to `min`. |
-| `End` | Sets value to `max`. |
+<KeyTable rows={[
+  { key: 'Tab', behavior: 'Moves focus to the slider (skipped when disabled).' },
+  { key: 'Arrow Right / Arrow Up', behavior: 'Increases value by one step.' },
+  { key: 'Arrow Left / Arrow Down', behavior: 'Decreases value by one step.' },
+  { key: 'Page Up', behavior: 'Increases value by a larger increment (browser default, typically 10% of range).' },
+  { key: 'Page Down', behavior: 'Decreases value by a larger increment.' },
+  { key: 'Home', behavior: 'Sets value to min.' },
+  { key: 'End', behavior: 'Sets value to max.' },
+]} />
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.3.1 Info and Relationships | A | Label must be programmatically associated with the input. |
-| 1.4.3 Contrast | AA | Track and thumb meet minimum contrast against the page background. |
-| 2.1.1 Keyboard | A | Fully operable via keyboard using native range input behaviour. |
-| 2.4.7 Focus Visible | AA | The thumb receives a visible focus indicator when focused via keyboard. |
-| 4.1.2 Name, Role, Value | AA | Native `<input type="range">` provides role, min, max, and current value; supply a label and `aria-valuetext` where appropriate. |
+<WCAGTable rows={[
+  { criterion: '1.3.1 Info and Relationships', level: 'A', notes: 'Label must be programmatically associated with the input.' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Track and thumb meet minimum contrast against the page background.' },
+  { criterion: '2.1.1 Keyboard', level: 'A', notes: 'Fully operable via keyboard using native range input behaviour.' },
+  { criterion: '2.4.7 Focus Visible', level: 'AA', notes: 'The thumb receives a visible focus indicator when focused via keyboard.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'Native <input type="range"> provides role, min, max, and current value; supply a label and aria-valuetext where appropriate.' },
+]} />

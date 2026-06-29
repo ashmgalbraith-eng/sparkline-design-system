@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as ChipStories from './chip.stories';
 
 <Meta title="Components/Chip/Overview" />
+
+<Pill />
 
 # Chip
 
@@ -11,4 +14,6 @@ Chips are compact, interactive elements used to represent attributes, filters, o
 
 ## Usage guidelines
 
+<Callout>
 Use chips to show applied filters, tags, or multi-select values. The clearable variant should be used whenever the user can remove the chip. Keep chip labels short and specific — one to three words.
+</Callout>

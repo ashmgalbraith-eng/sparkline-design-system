@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Stepper/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -23,10 +26,10 @@ Stepper is a display-only progress indicator and is not interactive by default. 
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.3.1 Info and Relationships | A | Use semantic list markup or `aria-label` to convey step order and current position. |
-| 1.3.3 Sensory Characteristics | AA | Completion is indicated by both a check icon and a colour change — do not rely on colour alone; include text or `aria-label`. |
-| 1.4.1 Use of Colour | A | Error state uses an icon in addition to colour; completed state uses a check icon. |
-| 1.4.3 Contrast | AA | Step labels and indicators meet minimum contrast in all states. |
-| 4.1.2 Name, Role, Value | AA | Add `aria-current="step"` to the active step; label completed and error steps explicitly. |
+<WCAGTable rows={[
+  { criterion: '1.3.1 Info and Relationships', level: 'A', notes: 'Use semantic list markup or aria-label to convey step order and current position.' },
+  { criterion: '1.3.3 Sensory Characteristics', level: 'AA', notes: 'Completion is indicated by both a check icon and a colour change — do not rely on colour alone; include text or aria-label.' },
+  { criterion: '1.4.1 Use of Colour', level: 'A', notes: 'Error state uses an icon in addition to colour; completed state uses a check icon.' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Step labels and indicators meet minimum contrast in all states.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'Add aria-current="step" to the active step; label completed and error steps explicitly.' },
+]} />

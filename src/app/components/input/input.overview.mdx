@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as InputStories from './input.stories';
 
 <Meta title="Components/Input/Overview" />
+
+<Pill />
 
 # Input
 
@@ -11,4 +14,6 @@ Text inputs let users enter and edit freeform text. They support labels, helper 
 
 ## Usage guidelines
 
+<Callout>
 Always pair an input with a visible label. Use helper text to set expectations before submission and error text to explain what went wrong. The optional label flag communicates that a field is not required.
+</Callout>

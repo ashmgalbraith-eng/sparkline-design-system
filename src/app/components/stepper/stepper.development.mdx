@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Stepper/Development" />
+
+<Pill />
+
+# Stepper
+
+Stepper is a display-only progress indicator. Step state (pending/active/completed/error) is derived automatically from activeStep unless explicitly overridden per step.
+
+## Import
+
+<CodeBlock>{`import { StepperComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [StepperComponent],
+  template: '<sp-stepper [steps]="onboardingSteps" [activeStep]="currentStep"></sp-stepper>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'steps', type: 'StepperStep[]', default: '[]', description: 'Array of { label, description?, state? } objects, one per step.' },
+  { name: 'activeStep', type: 'number', default: '0', description: 'Index of the current step. Earlier steps render as completed; later steps as pending.' },
+  { name: 'orientation', type: '\'horizontal\' | \'vertical\'', default: '\'horizontal\'', description: 'Layout direction.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+]} />

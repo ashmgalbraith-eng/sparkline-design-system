@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System Governance/Communication & Enforcement" />
+
+export const Callout = ({ children, tone = 'info' }) => {
+  const tones = {
+    info: { border: '#783EF9', bg: '#F1ECFE', color: '#3D3D3D' },
+    warning: { border: '#EA0606', bg: '#FDE5E5', color: '#3D3D3D' },
+  };
+  const t = tones[tone];
+  return (
+    <div style={{
+      borderLeft: `3px solid ${t.border}`,
+      background: t.bg,
+      padding: '16px 20px',
+      borderRadius: '0 8px 8px 0',
+      margin: '24px 0',
+      fontSize: '15px',
+      color: t.color,
+      lineHeight: 1.6,
+    }}>
+      {children}
+    </div>
+  );
+};
+
+export const RuleList = ({ items }) => (
+  <ul style={{ listStyle: 'none', padding: 0, margin: '16px 0 32px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+    {items.map((item, i) => (
+      <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', fontSize: '14px', color: '#3D3D3D', lineHeight: 1.5 }}>
+        <span style={{ flexShrink: 0, width: '20px', height: '20px', borderRadius: '50%', background: '#F1ECFE', color: '#2C00AC', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '1px' }}>{i + 1}</span>
+        {item}
+      </li>
+    ))}
+  </ul>
+);
+
+export const ChannelCard = ({ name, purpose, color }) => (
+  <div style={{ border: '1px solid #D6D6D6', borderTop: `3px solid ${color}`, borderRadius: '8px', padding: '20px', background: '#fff' }}>
+    <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color, margin: '0 0 10px' }}>{name}</p>
+    <p style={{ fontSize: '14px', color: '#3D3D3D', margin: 0, lineHeight: 1.5 }}>{purpose}</p>
+  </div>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Governance</span>
+</div>
+
+# Communication & Enforcement
+
+<Callout>
+  The PR is the single source of truth. Decisions made outside of it do not count.
+</Callout>
+
+## Rules
+
+<RuleList items={[
+  'All feedback must happen in the PR associated with that change',
+  'No decision-making in Teams chats or side-thread approvals',
+  'Decisions must be documented in the PR',
+  'No one modifies Design System repos without Design System approval',
+  'Unauthorized changes will be reverted',
+]} />
+
+## Enforcement
+
+<Callout tone="warning">
+  Violations include catalog updates without a PR, direct repo changes, and bypassing process. Violations result in a revert and required resubmission through proper channels.
+</Callout>
+
+## Teams Channels
+
+Three dedicated channels keep the organization in the loop without requiring anyone to track the design system down.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginTop: '16px' }}>
+  <ChannelCard name="AMA" purpose="Questions around dev and UI" color="#2C00AC" />
+  <ChannelCard name="Announcements" purpose="Release updates" color="#783EF9" />
+  <ChannelCard name="Resources" purpose="Shared materials" color="#DB00A1" />
+</div>

@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, KeyTable, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Radio/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -16,21 +19,19 @@ Always group radio buttons inside a `<fieldset>` and `<legend>` (or `role="radio
 
 ## Keyboard navigation
 
-| Key | Behaviour |
-|-----|-----------|
-| `Tab` | Moves focus to the selected radio in the group (or the first if none selected). |
-| `Arrow Up` / `Arrow Left` | Moves to and selects the previous radio in the group. |
-| `Arrow Down` / `Arrow Right` | Moves to and selects the next radio in the group. |
-| `Space` | Selects the currently focused radio if it is not already selected. |
-
-Arrow key navigation within the group should be implemented at the application or group-wrapper level using a roving tabindex pattern.
+<KeyTable rows={[
+  { key: 'Tab', behavior: 'Moves focus to the selected radio in the group (or the first if none selected).' },
+  { key: 'Arrow Up / Arrow Left', behavior: 'Moves to and selects the previous radio in the group.' },
+  { key: 'Arrow Down / Arrow Right', behavior: 'Moves to and selects the next radio in the group.' },
+  { key: 'Space', behavior: 'Selects the currently focused radio if it is not already selected.' },
+]} />
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.3.1 Info and Relationships | A | Use `role="radiogroup"` with `aria-labelledby` or `<fieldset>`/`<legend>` to convey grouping. |
-| 1.4.3 Contrast | AA | Label text and control boundaries meet minimum contrast ratios. |
-| 2.1.1 Keyboard | A | Selectable via `Space`; arrow-key navigation within the group is the conventional pattern. |
-| 2.4.7 Focus Visible | AA | A visible focus ring is displayed on keyboard focus. |
-| 4.1.2 Name, Role, Value | AA | `role="radio"`, `aria-checked`, and `aria-disabled` are managed automatically. |
+<WCAGTable rows={[
+  { criterion: '1.3.1 Info and Relationships', level: 'A', notes: 'Use role="radiogroup" with aria-labelledby or <fieldset>/<legend> to convey grouping.' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Label text and control boundaries meet minimum contrast ratios.' },
+  { criterion: '2.1.1 Keyboard', level: 'A', notes: 'Selectable via Space; arrow-key navigation within the group is the conventional pattern.' },
+  { criterion: '2.4.7 Focus Visible', level: 'AA', notes: 'A visible focus ring is displayed on keyboard focus.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'role="radio", aria-checked, and aria-disabled are managed automatically.' },
+]} />

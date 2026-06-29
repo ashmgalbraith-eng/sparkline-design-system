@@ -42,3 +42,9 @@ testem.log
 Thumbs.db
 
 *storybook.log
+
+# Secrets
+.env
+
+# Claude Code tooling
+.claude/

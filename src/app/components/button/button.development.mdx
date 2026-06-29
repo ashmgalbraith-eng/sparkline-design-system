@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Button/Development" />
+
+<Pill />
+
+# Button
+
+Button manages its own interaction state (hover, pressed, focus) internally via host listeners, so consumers only need to bind label, type, size, and state.
+
+## Import
+
+<CodeBlock>{`import { ButtonComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [ButtonComponent],
+  template: '<sp-button type="filled" size="large" label="Save changes" (buttonClick)="onSave()"></sp-button>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'label', type: 'string', default: '\'Button\'', description: 'Visible text label.' },
+  { name: 'type', type: '\'filled\' | \'outlined\' | \'text\'', default: '\'filled\'', description: 'Visual emphasis level.' },
+  { name: 'size', type: '\'large\' | \'small\'', default: '\'large\'', description: 'Button height and padding scale.' },
+  { name: 'state', type: '\'default\' | \'hover\' | \'pressed\' | \'focus\' | \'disabled\'', default: '\'default\'', description: 'External state override. Set to \'disabled\' to disable; other interactive states are normally managed internally.' },
+  { name: 'showLeftIcon', type: 'boolean', default: 'false', description: 'Shows the icon passed via leftIconName.' },
+  { name: 'showRightIcon', type: 'boolean', default: 'false', description: 'Shows the icon passed via rightIconName.' },
+  { name: 'leftIconName', type: 'string', default: '\'arrow-left\'', description: 'Icon registry key for the left icon.' },
+  { name: 'rightIconName', type: 'string', default: '\'arrow-right\'', description: 'Icon registry key for the right icon.' },
+  { name: 'showText', type: 'boolean', default: 'true', description: 'Set to false for an icon-only button. Pair with an aria-label on the host.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'buttonClick', payload: 'MouseEvent', description: 'Emitted on click, only when state is not \'disabled\'.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+]} />

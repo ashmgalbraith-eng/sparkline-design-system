@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, KeyTable, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/ButtonGroup/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -14,17 +17,17 @@ The active button should carry `aria-pressed="true"` or be represented within a 
 
 ## Keyboard navigation
 
-| Key | Behaviour |
-|-----|-----------|
-| `Tab` | Moves focus into the group. |
-| `Arrow Left / Right` | Moves focus between buttons within the group (roving tabindex pattern recommended). |
-| `Enter` / `Space` | Selects the focused button. |
+<KeyTable rows={[
+  { key: 'Tab', behavior: 'Moves focus into the group.' },
+  { key: 'Arrow Left / Right', behavior: 'Moves focus between buttons within the group (roving tabindex pattern recommended).' },
+  { key: 'Enter / Space', behavior: 'Selects the focused button.' },
+]} />
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.3.1 Info and Relationships | A | Use `aria-pressed` or `role="radio"` to convey selection state programmatically. |
-| 1.4.3 Contrast | AA | Button labels and icons meet minimum contrast in enabled and disabled states. |
-| 2.1.1 Keyboard | A | All buttons must be reachable and activatable by keyboard. |
-| 4.1.2 Name, Role, Value | AA | Provide `aria-label` for icon-only buttons; expose active state via `aria-pressed`. |
+<WCAGTable rows={[
+  { criterion: '1.3.1 Info and Relationships', level: 'A', notes: 'Use aria-pressed or role="radio" to convey selection state programmatically.' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Button labels and icons meet minimum contrast in enabled and disabled states.' },
+  { criterion: '2.1.1 Keyboard', level: 'A', notes: 'All buttons must be reachable and activatable by keyboard.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'Provide aria-label for icon-only buttons; expose active state via aria-pressed.' },
+]} />

@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as SelectStories from './select.stories';
 
 <Meta title="Components/Select/Overview" />
+
+<Pill />
 
 # Select
 
@@ -11,4 +14,6 @@ Select fields let users choose one or more options from a dropdown list. The **m
 
 ## Usage guidelines
 
+<Callout>
 Use a select when there are five or more options. For fewer options, consider radio buttons or a button group. Always provide a `placeholder` to indicate the expected input. In multi-select mode, display selected chips clearly so users can review and remove selections.
+</Callout>

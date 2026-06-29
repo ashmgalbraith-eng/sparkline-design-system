@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Radio/Development" />
+
+<Pill />
+
+# Radio
+
+Radio manages a single option's checked and interaction state. Grouping and mutual exclusivity must be implemented by the consumer (e.g. binding all options in a group to the same model value).
+
+## Import
+
+<CodeBlock>{`import { RadioComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [RadioComponent],
+  template: '<sp-radio label="Email" [checked]="contactMethod === 'email'" (checkedChange)="contactMethod = 'email'"></sp-radio>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'checked', type: 'boolean', default: 'false', description: 'Checked state of this radio.' },
+  { name: 'label', type: 'string', default: '\'Radio\'', description: 'Visible label text.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables interaction and removes the element from focus order.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'checkedChange', payload: 'boolean', description: 'Emitted with the new checked value on toggle.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

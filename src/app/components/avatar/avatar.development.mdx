@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Avatar/Development" />
+
+<Pill />
+
+# Avatar
+
+Avatar is a presentational component composed of the shared Icon and Badge components for its icon variant and status/notification overlays.
+
+## Import
+
+<CodeBlock>{`import { AvatarComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [AvatarComponent],
+  template: '<sp-avatar size="large" type="image" imageSrc="/profile.jpg" imageAlt="Jane Doe" [showStatus]="true" statusColor="success"></sp-avatar>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'size', type: '\'small\' | \'medium\' | \'large\'', default: '\'medium\'', description: 'Controls the avatar diameter and the size of initials/icon.' },
+  { name: 'type', type: '\'text\' | \'image\' | \'icon\'', default: '\'text\'', description: 'Which content renders inside the avatar.' },
+  { name: 'initials', type: 'string', default: '\'A\'', description: 'Initials shown when type is \'text\'. Truncated to 1 character (small/medium) or 2 (large).' },
+  { name: 'imageSrc', type: 'string', default: '\'\'', description: 'Image URL when type is \'image\'.' },
+  { name: 'imageAlt', type: 'string', default: '\'Avatar\'', description: 'Alt text for the image. Pass an empty string if the image is purely decorative.' },
+  { name: 'showNotification', type: 'boolean', default: 'false', description: 'Shows a numeric notification badge in the corner.' },
+  { name: 'notificationCount', type: 'string', default: '\'999+\'', description: 'Text shown in the notification badge, truncated to 4 characters.' },
+  { name: 'showStatus', type: 'boolean', default: 'false', description: 'Shows a status dot badge in the corner.' },
+  { name: 'statusColor', type: 'BadgeStatus', default: '\'success\'', description: 'Color of the status dot. Reuses the Badge component\'s status palette.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+  'sp-badge',
+]} />

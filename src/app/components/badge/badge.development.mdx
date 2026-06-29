@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Badge/Development" />
+
+<Pill />
+
+# Badge
+
+Badge is a small, self-contained status indicator. It has no external dependencies and is also composed inside Avatar.
+
+## Import
+
+<CodeBlock>{`import { BadgeComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [BadgeComponent],
+  template: '<sp-badge type="numeric" status="error" label="3"></sp-badge>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'label', type: 'string', default: '\'9\'', description: 'Text shown for the numeric type. Ignored for the dot type.' },
+  { name: 'type', type: '\'numeric\' | \'dot\'', default: '\'numeric\'', description: 'Whether the badge shows a count label or a plain dot.' },
+  { name: 'status', type: '\'success\' | \'error\' | \'warning\' | \'info\' | \'notification\'', default: '\'notification\'', description: 'Semantic color applied to the badge.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

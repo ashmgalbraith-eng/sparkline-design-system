@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Chip/Development" />
+
+<Pill />
+
+# Chip
+
+Chip manages its own interaction state internally. The clearable type always shows a right icon as a remove action regardless of showRightIcon.
+
+## Import
+
+<CodeBlock>{`import { ChipComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [ChipComponent],
+  template: '<sp-chip type="clearable" label="Active filters" (removed)="clearFilter()"></sp-chip>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'label', type: 'string', default: '\'Chip\'', description: 'Visible label text.' },
+  { name: 'type', type: '\'clearable\' | \'plain\'', default: '\'plain\'', description: 'Clearable chips show a remove action and emit removed.' },
+  { name: 'state', type: '\'default\' | \'hover\' | \'pressed\' | \'focus\' | \'disabled\'', default: '\'default\'', description: 'External state override, primarily used to disable the chip.' },
+  { name: 'showLeftIcon', type: 'boolean', default: 'false', description: 'Shows the left icon.' },
+  { name: 'showRightIcon', type: 'boolean', default: 'false', description: 'Shows the right icon. Always true when type is \'clearable\'.' },
+  { name: 'leftIconName', type: 'string', default: '\'check-circle-outline\'', description: 'Icon registry key for the left icon.' },
+  { name: 'rightIconName', type: 'string', default: '\'menu-down-outline\'', description: 'Icon registry key for the right icon (non-clearable chips).' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'removed', payload: 'void', description: 'Emitted when the remove action is triggered on a clearable chip.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+]} />

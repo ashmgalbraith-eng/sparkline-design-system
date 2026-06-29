@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as RadioStories from './radio.stories';
 
 <Meta title="Components/Radio/Overview" />
+
+<Pill />
 
 # Radio
 
@@ -11,4 +14,6 @@ Radio buttons allow users to select exactly one option from a group of mutually 
 
 ## Usage guidelines
 
+<Callout>
 Group radio buttons with a shared label that describes the choice. Always pre-select the most common or safe default. If users need to select multiple options, use checkboxes instead.
+</Callout>

@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Card/Development" />
+
+<Pill />
+
+# Card
+
+Card is a pure layout container with no internal logic. Content is projected via ng-content.
+
+## Import
+
+<CodeBlock>{`import { CardComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [CardComponent],
+  template: '<sp-card variant="outlined" padding="lg"><h3>Account summary</h3></sp-card>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'variant', type: '\'elevated\' | \'outlined\' | \'filled\'', default: '\'elevated\'', description: 'Visual treatment of the card surface.' },
+  { name: 'padding', type: '\'none\' | \'sm\' | \'md\' | \'lg\'', default: '\'md\'', description: 'Internal padding applied to projected content.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

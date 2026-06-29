@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Switch/Development" />
+
+<Pill />
+
+# Switch
+
+Switch is the lightest-weight stateful component in the library, with no external dependencies.
+
+## Import
+
+<CodeBlock>{`import { SwitchComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [SwitchComponent],
+  template: '<sp-switch [checked]="notificationsEnabled" (checkedChange)="notificationsEnabled = $event"></sp-switch>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'checked', type: 'boolean', default: 'false', description: 'On/off state.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables interaction.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'checkedChange', payload: 'boolean', description: 'Emitted with the new checked value on toggle.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

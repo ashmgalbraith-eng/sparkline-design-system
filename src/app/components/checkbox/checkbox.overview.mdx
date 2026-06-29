@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as CheckboxStories from './checkbox.stories';
 
 <Meta title="Components/Checkbox/Overview" />
+
+<Pill />
 
 # Checkbox
 
@@ -11,4 +14,6 @@ Checkboxes let users select one or more items from a set. They also support an *
 
 ## Usage guidelines
 
+<Callout>
 Use checkboxes when users need to select multiple options or toggle a single setting that requires a save action. For binary, immediate settings, prefer a Switch. Always provide a visible label.
+</Callout>

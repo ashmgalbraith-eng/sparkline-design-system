@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Avatar/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -18,8 +21,8 @@ Avatar itself is not focusable. Any interactive behaviour (clicking to open a pr
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.1.1 Non-text Content | AA | Provide `imageAlt` when `type="image"`. |
-| 1.4.3 Contrast | AA | Initials on the default overlay background meet minimum contrast at all sizes. |
-| 4.1.2 Name, Role, Value | AA | Add `aria-label` on interactive wrappers; do not rely on the avatar alone to convey state. |
+<WCAGTable rows={[
+  { criterion: '1.1.1 Non-text Content', level: 'AA', notes: 'Provide imageAlt when type="image".' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Initials on the default overlay background meet minimum contrast at all sizes.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'Add aria-label on interactive wrappers; do not rely on the avatar alone to convey state.' },
+]} />

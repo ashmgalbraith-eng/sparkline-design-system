@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Input/Development" />
+
+<Pill />
+
+# Input
+
+Input implements Angular's ControlValueAccessor, so it works directly with ngModel and reactive forms in addition to its own valueChange output.
+
+## Import
+
+<CodeBlock>{`import { InputComponent } from 'sparkline-ds';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  standalone: true,
+  imports: [InputComponent, FormsModule],
+  template: '<sp-input label="Email" [(ngModel)]="email" [state]="emailError ? 'error' : 'default'" [errorText]="emailError"></sp-input>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'label', type: 'string', default: '\'\'', description: 'Visible label, associated with the native input via for/id.' },
+  { name: 'placeholder', type: 'string', default: '\'Placeholder\'', description: 'Native placeholder text.' },
+  { name: 'helperText', type: 'string', default: '\'\'', description: 'Helper text shown below the field in default state.' },
+  { name: 'errorText', type: 'string', default: '\'\'', description: 'Error text shown below the field when state is \'error\'.' },
+  { name: 'state', type: '\'default\' | \'focus\' | \'error\' | \'success\' | \'disabled\'', default: '\'default\'', description: 'Focus is normally managed internally; set \'error\', \'success\', or \'disabled\' externally.' },
+  { name: 'showOptional', type: 'boolean', default: 'false', description: 'Shows an \'Optional\' indicator next to the label.' },
+  { name: 'type', type: 'string', default: '\'text\'', description: 'Native input type attribute.' },
+  { name: 'leftIconName', type: 'string', default: '\'\'', description: 'Icon registry key for the leading icon.' },
+  { name: 'rightIconName', type: 'string', default: '\'\'', description: 'Icon registry key for the trailing icon.' },
+  { name: 'showLeftIcon', type: 'boolean', default: 'false', description: 'Shows the leading icon.' },
+  { name: 'showRightIcon', type: 'boolean', default: 'false', description: 'Shows the trailing icon.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'valueChange', payload: 'string', description: 'Emitted on every input event with the current value.' },
+]} />
+
+## Dependencies
+
+<DependencyList items={[
+  'sp-icon',
+  '@angular/forms (ControlValueAccessor)',
+]} />

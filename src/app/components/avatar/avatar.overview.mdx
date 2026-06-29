@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as AvatarStories from './avatar.stories';
 
 <Meta title="Components/Avatar/Overview" />
+
+<Pill />
 
 # Avatar
 
@@ -11,4 +14,6 @@ Avatars represent a user or entity. They can display initials, an icon, or a pro
 
 ## Usage guidelines
 
+<Callout>
 Use the text variant with initials when no image is available. Reserve notification badges for contexts where counts are meaningful (e.g. unread messages). Status indicators communicate presence or availability.
+</Callout>

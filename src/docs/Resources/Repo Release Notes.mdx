@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Resources/Repo Release Notes" />
+
+export const VersionBadge = ({ label, color, bg }) => (
+  <span style={{
+    display: 'inline-block',
+    fontSize: '11px',
+    fontWeight: 700,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+    color,
+    background: bg,
+    padding: '3px 9px',
+    borderRadius: '999px',
+  }}>{label}</span>
+);
+
+export const PlatformTag = ({ label }) => (
+  <span style={{
+    display: 'inline-block',
+    fontSize: '10px',
+    fontWeight: 700,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase',
+    color: '#757575',
+    border: '1px solid #D6D6D6',
+    padding: '2px 8px',
+    borderRadius: '999px',
+    marginRight: '6px',
+  }}>{label}</span>
+);
+
+export const ReleaseEntry = ({ version, date, type, platforms, children }) => {
+  const types = {
+    Patch: { color: '#008A22', bg: '#E3F6E8' },
+    Minor: { color: '#AC6502', bg: '#FCEFDC' },
+    Major: { color: '#EA0606', bg: '#FDE5E5' },
+  };
+  const t = types[type];
+  return (
+    <div style={{ border: '1px solid #D6D6D6', borderRadius: '8px', padding: '20px 22px', marginBottom: '14px', background: '#fff' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: 'monospace', fontSize: '13px', fontWeight: 700, color: '#000' }}>{version}</span>
+        <VersionBadge label={type} color={t.color} bg={t.bg} />
+        <span style={{ fontSize: '12px', color: '#9b9b9b' }}>{date}</span>
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        {platforms.map((p) => <PlatformTag key={p} label={p} />)}
+      </div>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        {children}
+      </ul>
+    </div>
+  );
+};
+
+export const Item = ({ children }) => (
+  <li style={{ fontSize: '14px', color: '#3D3D3D', lineHeight: 1.5, paddingLeft: '14px', position: 'relative' }}>
+    <span style={{ position: 'absolute', left: 0, top: '8px', width: '5px', height: '5px', borderRadius: '50%', background: '#DB00A1' }} />
+    {children}
+  </li>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Resources</span>
+</div>
+
+# Repo Release Notes
+
+A history of changes published to the `sparkline-ds` repository and npm package. See [Versioning & Releases](?path=/docs/design-system-governance-versioning-releases--docs) for what Patch, Minor, and Major mean.
+
+<ReleaseEntry version="v4.2.0" date="Jun 4, 2026" type="Minor" platforms={['Web']}>
+  <Item>Added Switch, Select, Radio, Stepper, Slider, and Card components, each with full MDX documentation</Item>
+  <Item>Upgraded to Storybook 10 and Angular 21</Item>
+  <Item>Rebuilt the Storybook config (main.ts, preview.ts) for the new addon-docs based architecture</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.1.0" date="Feb 23, 2026" type="Minor" platforms={['Web']}>
+  <Item>Added a centralized icon system with 62 icons, exposed through a shared Icon component and gallery page</Item>
+  <Item>Added Switch component with stories covering all states</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.0.1" date="Feb 12, 2026" type="Patch" platforms={['Web']}>
+  <Item>Removed a duplicate legacy components directory that was causing conflicting Storybook story entries</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v3.0.0" date="Feb 12, 2026" type="Major" platforms={['Web']}>
+  <Item>Added Chip component with clearable/plain types and outlined/filled styles</Item>
+  <Item>Added Input component with label, helper/error text, icon slots, and validation states</Item>
+  <Item>Renamed several exported token constants to match the new semantic naming convention; consumers importing the old names will need to update references</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v2.0.0" date="Feb 6, 2026" type="Major" platforms={['Web']}>
+  <Item>Rewrote the design system from React to Angular, rebuilt on Storybook 8</Item>
+  <Item>Re-published Button as a standalone Angular component with the original variant API preserved where possible</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v1.1.0" date="Feb 11, 2026" type="Minor" platforms={['Web']}>
+  <Item>Added Avatar and Badge components, ported from the Figma design system</Item>
+</ReleaseEntry>
+
+<ReleaseEntry version="v1.0.0" date="Feb 3, 2026" type="Major" platforms={['Web']}>
+  <Item>Initial scaffold: Angular 19 + Storybook 8 with the Button component</Item>
+</ReleaseEntry>

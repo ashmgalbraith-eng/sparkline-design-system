@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as ButtonStories from './button.stories';
 
 <Meta title="Components/Button/Overview" />
+
+<Pill />
 
 # Button
 
@@ -11,4 +14,6 @@ Buttons trigger actions and communicate what will happen when a user interacts w
 
 ## Usage guidelines
 
+<Callout>
 Choose the button type based on visual hierarchy: a page should have at most one primary (filled) action, with secondary and text variants used for supporting actions. Always write button labels in sentence case using clear, action-oriented language.
+</Callout>

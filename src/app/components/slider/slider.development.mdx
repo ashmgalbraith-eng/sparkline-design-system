@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Slider/Development" />
+
+<Pill />
+
+# Slider
+
+Slider wraps a native `<input type="range">` and recalculates its fill percentage whenever value, min, or max change via ngOnChanges.
+
+## Import
+
+<CodeBlock>{`import { SliderComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [SliderComponent],
+  template: '<sp-slider [min]="0" [max]="100" [step]="5" [(value)]="volume" [showValue]="true"></sp-slider>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'value', type: 'number', default: '50', description: 'Current numeric value.' },
+  { name: 'min', type: 'number', default: '0', description: 'Minimum selectable value.' },
+  { name: 'max', type: 'number', default: '100', description: 'Maximum selectable value.' },
+  { name: 'step', type: 'number', default: '1', description: 'Increment between selectable values.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables interaction.' },
+  { name: 'showValue', type: 'boolean', default: 'false', description: 'Shows the current numeric value next to the track.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'valueChange', payload: 'number', description: 'Emitted on input with the new numeric value.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

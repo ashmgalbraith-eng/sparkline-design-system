@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Resources/Planning & Requests" />
+
+export const ResourceLink = ({ title, description, linkLabel, color, href = '#' }) => (
+  <div style={{
+    border: '1px solid #D6D6D6',
+    borderTop: `3px solid ${color}`,
+    borderRadius: '8px',
+    padding: '20px',
+    background: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+    height: '100%',
+    boxSizing: 'border-box',
+  }}>
+    <p style={{ fontSize: '15px', fontWeight: 700, color: '#000', margin: '0 0 2px' }}>{title}</p>
+    <p style={{ fontSize: '13px', color: '#757575', margin: '0 0 14px', lineHeight: 1.5 }}>{description}</p>
+    <a href={href} style={{
+      marginTop: 'auto',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      fontSize: '12px',
+      fontWeight: 700,
+      letterSpacing: '0.04em',
+      textTransform: 'uppercase',
+      color,
+      textDecoration: 'none',
+    }}>
+      {linkLabel} →
+    </a>
+  </div>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Resources</span>
+</div>
+
+# Planning & Requests
+
+Where to go to ask for something, ask about something, or see what's coming next.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+  <ResourceLink
+    title="Submit a Request"
+    description="The intake form for requesting new components, tokens, or changes to the system. Start here before any work is scoped."
+    linkLabel="Open intake form"
+    color="#783EF9"
+  />
+  <ResourceLink
+    title="AMA"
+    description="The Teams channel for dev and UI questions. Best for quick clarification that doesn't need a formal request."
+    linkLabel="Go to AMA channel"
+    color="#2C00AC"
+  />
+  <ResourceLink
+    title="Roadmap"
+    description="The current Design System roadmap, including what's in progress, what's next, and what's been deprioritized."
+    linkLabel="View roadmap"
+    color="#DB00A1"
+  />
+  <ResourceLink
+    title="PI Planning"
+    description="Notes and outputs from the most recent Program Increment planning session, including sequencing and dependencies."
+    linkLabel="View PI plan"
+    color="#AC6502"
+  />
+  <ResourceLink
+    title="Sprint Updates"
+    description="A running log of what shipped each sprint, so partner teams can track progress without sitting in on every ceremony."
+    linkLabel="View sprint updates"
+    color="#006ADB"
+  />
+</div>

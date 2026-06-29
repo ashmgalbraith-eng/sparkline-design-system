@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Resources/Downloads" />
+
+export const DownloadCard = ({ title, description, meta, href, color }) => (
+  <a href={href} download style={{ textDecoration: 'none' }}>
+    <div style={{
+      border: '1px solid #D6D6D6',
+      borderTop: `3px solid ${color}`,
+      borderRadius: '8px',
+      padding: '20px',
+      background: '#fff',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '4px',
+      height: '100%',
+      boxSizing: 'border-box',
+    }}>
+      <p style={{ fontSize: '15px', fontWeight: 700, color: '#000', margin: '0 0 2px' }}>{title}</p>
+      <p style={{ fontSize: '13px', color: '#757575', margin: '0 0 14px', lineHeight: 1.5 }}>{description}</p>
+      <span style={{
+        marginTop: 'auto',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '6px',
+        fontSize: '12px',
+        fontWeight: 700,
+        letterSpacing: '0.04em',
+        textTransform: 'uppercase',
+        color,
+      }}>
+        ↓ Download {meta && <span style={{ color: '#9b9b9b', fontWeight: 400, textTransform: 'none', letterSpacing: 'normal' }}>· {meta}</span>}
+      </span>
+    </div>
+  </a>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Resources</span>
+</div>
+
+# Downloads
+
+## Fonts
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '40px' }}>
+  <DownloadCard
+    title="Roboto"
+    description="Full family: Thin, Light, Regular, Medium, Bold, and Black, plus italics. Used as the base font across the design system."
+    meta=".zip · TTF"
+    href="/downloads/roboto-font.zip"
+    color="#783EF9"
+  />
+</div>
+
+## Iconography
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+  <DownloadCard
+    title="Sparkline Icon Pack"
+    description="All 62 icons currently in the design system, exported as individual SVGs."
+    meta=".zip · SVG"
+    href="/downloads/sparkline-icons.zip"
+    color="#DB00A1"
+  />
+</div>
+
+Each icon is a standalone SVG using the same path data as the [Icon component](?path=/docs/components-icon-overview--docs), so anything dropped from this package will always match what ships in code.

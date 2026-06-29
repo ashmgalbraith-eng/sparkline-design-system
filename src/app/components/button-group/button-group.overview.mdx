@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as ButtonGroupStories from './button-group.stories';
 
 <Meta title="Components/ButtonGroup/Overview" />
+
+<Pill />
 
 # Button Group
 
@@ -11,4 +14,6 @@ Button groups present a set of segmented actions in a connected row, where exact
 
 ## Usage guidelines
 
+<Callout>
 Keep group labels short and parallel. The active item should reflect the current state, not a desired action. Limit groups to 2–5 buttons; more options are better served by a select or tab component.
+</Callout>

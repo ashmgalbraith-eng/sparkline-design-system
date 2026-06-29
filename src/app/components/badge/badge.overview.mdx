@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as BadgeStories from './badge.stories';
 
 <Meta title="Components/Badge/Overview" />
+
+<Pill />
 
 # Badge
 
@@ -11,4 +14,6 @@ Badges are small status indicators that communicate counts, notifications, or se
 
 ## Usage guidelines
 
+<Callout>
 Use numeric badges to show counts (e.g. unread items). Use the dot variant when presence or status needs to be communicated without a count. Status color conveys meaning — use consistently across the product.
+</Callout>

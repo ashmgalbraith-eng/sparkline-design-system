@@ -1,6 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, KeyTable, WCAGTable } from '../../../docs/shared/DocBlocks.mdx';
 
 <Meta title="Components/Checkbox/Accessibility" />
+
+<Pill />
 
 # Accessibility
 
@@ -16,18 +19,18 @@ Group related checkboxes inside a `<fieldset>` with a `<legend>` so the group la
 
 ## Keyboard navigation
 
-| Key | Behaviour |
-|-----|-----------|
-| `Tab` | Moves focus to the checkbox (skipped when disabled). |
-| `Space` | Toggles the checked state. An indeterminate checkbox becomes checked on first `Space` press. |
+<KeyTable rows={[
+  { key: 'Tab', behavior: 'Moves focus to the checkbox (skipped when disabled).' },
+  { key: 'Space', behavior: 'Toggles the checked state. An indeterminate checkbox becomes checked on first Space press.' },
+]} />
 
 ## WCAG compliance
 
-| Criterion | Level | Notes |
-|-----------|-------|-------|
-| 1.3.1 Info and Relationships | A | `role="checkbox"` with `aria-checked` communicates state to assistive technology. |
-| 1.4.3 Contrast | AA | Label text and control boundaries meet minimum contrast ratios. |
-| 2.1.1 Keyboard | A | Fully operable via keyboard. |
-| 2.4.7 Focus Visible | AA | A focus ring is displayed on keyboard navigation. |
-| 3.3.2 Labels or Instructions | A | The `label` prop is always visible; do not rely on placeholder or tooltip text alone. |
-| 4.1.2 Name, Role, Value | AA | `role`, `aria-checked`, and `aria-disabled` are managed automatically. |
+<WCAGTable rows={[
+  { criterion: '1.3.1 Info and Relationships', level: 'A', notes: 'role="checkbox" with aria-checked communicates state to assistive technology.' },
+  { criterion: '1.4.3 Contrast', level: 'AA', notes: 'Label text and control boundaries meet minimum contrast ratios.' },
+  { criterion: '2.1.1 Keyboard', level: 'A', notes: 'Fully operable via keyboard.' },
+  { criterion: '2.4.7 Focus Visible', level: 'AA', notes: 'A focus ring is displayed on keyboard navigation.' },
+  { criterion: '3.3.2 Labels or Instructions', level: 'A', notes: 'The label prop is always visible; do not rely on placeholder or tooltip text alone.' },
+  { criterion: '4.1.2 Name, Role, Value', level: 'AA', notes: 'role, aria-checked, and aria-disabled are managed automatically.' },
+]} />

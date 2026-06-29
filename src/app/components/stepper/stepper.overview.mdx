@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as StepperStories from './stepper.stories';
 
 <Meta title="Components/Stepper/Overview" />
+
+<Pill />
 
 # Stepper
 
@@ -11,4 +14,6 @@ Steppers guide users through a multi-step process by showing their progress. Com
 
 ## Usage guidelines
 
+<Callout>
 Use steppers for linear processes of 3–6 steps (e.g. onboarding, checkout). Label each step concisely. Provide an optional description for added context. Use the error state to surface problems that require attention before moving forward.
+</Callout>

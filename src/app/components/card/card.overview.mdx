@@ -1,7 +1,10 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Pill, Callout } from '../../../docs/shared/DocBlocks.mdx';
 import * as CardStories from './card.stories';
 
 <Meta title="Components/Card/Overview" />
+
+<Pill />
 
 # Card
 
@@ -11,4 +14,6 @@ Cards are surface containers that group related content and actions. They accept
 
 ## Usage guidelines
 
+<Callout>
 Choose the card variant based on background context: elevated cards work on flat backgrounds, outlined cards suit layouts where shadow would create noise, and filled cards work on light canvases that need subtle grouping.
+</Callout>

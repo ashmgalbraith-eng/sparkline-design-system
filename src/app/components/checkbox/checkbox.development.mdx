@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Pill, PropsTable, EventsTable, DependencyList, CodeBlock } from '../../../docs/shared/DocBlocks.mdx';
+
+<Meta title="Components/Checkbox/Development" />
+
+<Pill />
+
+# Checkbox
+
+Checkbox manages checked/indeterminate state transitions and interaction states internally via host bindings.
+
+## Import
+
+<CodeBlock>{`import { CheckboxComponent } from 'sparkline-ds';
+
+@Component({
+  standalone: true,
+  imports: [CheckboxComponent],
+  template: '<sp-checkbox label="Email me updates" [checked]="subscribed" (checkedChange)="subscribed = $event"></sp-checkbox>',
+})`}</CodeBlock>
+
+## Properties
+
+<PropsTable rows={[
+  { name: 'checked', type: 'boolean', default: 'false', description: 'Checked state.' },
+  { name: 'indeterminate', type: 'boolean', default: 'false', description: 'Shows the indeterminate (mixed) visual. Clicking an indeterminate checkbox sets it to checked.' },
+  { name: 'label', type: 'string', default: '\'Checkbox\'', description: 'Visible label text.' },
+  { name: 'disabled', type: 'boolean', default: 'false', description: 'Disables interaction and removes the element from focus order.' },
+]} />
+
+## Events
+
+<EventsTable rows={[
+  { name: 'checkedChange', payload: 'boolean', description: 'Emitted with the new checked value on toggle.' },
+]} />
+
+## Dependencies
+
+No internal component dependencies.

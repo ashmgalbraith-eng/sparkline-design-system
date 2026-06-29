@@ -1,0 +1,92 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System Governance/Versioning & Releases" />
+
+export const VersionCard = ({ label, color, bg, description, items }) => (
+  <div style={{
+    border: '1px solid #D6D6D6',
+    borderRadius: '8px',
+    padding: '20px',
+    background: '#fff',
+  }}>
+    <span style={{
+      display: 'inline-block',
+      fontSize: '11px',
+      fontWeight: 700,
+      letterSpacing: '0.08em',
+      textTransform: 'uppercase',
+      color,
+      background: bg,
+      padding: '4px 10px',
+      borderRadius: '999px',
+      marginBottom: '12px',
+    }}>{label}</span>
+    <p style={{ fontSize: '13px', color: '#757575', fontStyle: 'italic', margin: '0 0 14px' }}>{description}</p>
+    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {items.map((item, i) => (
+        <li key={i} style={{ fontSize: '14px', color: '#3D3D3D', lineHeight: 1.5, paddingLeft: '14px', position: 'relative' }}>
+          <span style={{ position: 'absolute', left: 0, top: '8px', width: '5px', height: '5px', borderRadius: '50%', background: color }} />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export const GroupCard = ({ title, description }) => (
+  <div style={{
+    border: '1px solid #D6D6D6',
+    borderLeft: '3px solid #783EF9',
+    borderRadius: '0 8px 8px 0',
+    padding: '14px 18px',
+    background: '#fff',
+  }}>
+    <p style={{ fontSize: '14px', fontWeight: 700, color: '#000', margin: '0 0 4px' }}>{title}</p>
+    <p style={{ fontSize: '13px', color: '#757575', margin: 0, lineHeight: 1.5 }}>{description}</p>
+  </div>
+);
+
+<div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+  <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2C00AC', background: '#F1ECFE', padding: '4px 10px', borderRadius: '999px' }}>Governance</span>
+</div>
+
+# Versioning & Releases
+
+Changes are grouped logically, versioned clearly, and released on Design System terms. Teams choose their own adoption timeline.
+
+## Version Types
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', marginBottom: '40px' }}>
+  <VersionCard
+    label="Patch"
+    color="#008A22"
+    bg="#E3F6E8"
+    description="Safe to adopt immediately"
+    items={['Bug fixes', 'Minor corrections', 'Non-disruptive accessibility fixes']}
+  />
+  <VersionCard
+    label="Minor"
+    color="#AC6502"
+    bg="#FCEFDC"
+    description="Additive, backward-compatible"
+    items={['New tokens', 'New components', 'Additive updates']}
+  />
+  <VersionCard
+    label="Major"
+    color="#EA0606"
+    bg="#FDE5E5"
+    description="Requires consumer action"
+    items={['Token removal or rename', 'Component contract changes', 'Required consumer action']}
+  />
+</div>
+
+## Grouping Strategy
+
+Releases are bundled by theme so consumers can scan a changelog and immediately understand what kind of change they're looking at.
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+  <GroupCard title="Theme updates" description="Brand color changes" />
+  <GroupCard title="Token updates" description="Color, sizing, typography" />
+  <GroupCard title="Component updates" description="Across platforms" />
+  <GroupCard title="Platform parity releases" description="iOS + Android together" />
+</div>
